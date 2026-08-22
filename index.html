@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>代码开发服务</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, "Microsoft YaHei", sans-serif;
+      background: #080f21;
+      color: white;
+    }
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 40px 25px;
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      margin: 0 0 25px;
+      line-height: 1.25;
+    }
+
+    .hero p {
+      color: #aeb6d2;
+      font-size: 20px;
+      line-height: 1.7;
+      margin: 0 0 30px;
+    }
+
+    .button {
+      display: inline-block;
+      background: #675cff;
+      color: white;
+      text-decoration: none;
+      padding: 17px 30px;
+      border-radius: 13px;
+      font-size: 18px;
+    }
+
+    .services {
+      max-width: 900px;
+      margin: auto;
+      padding: 20px 25px 80px;
+    }
+
+    .services-title {
+      text-align: center;
+      font-size: 32px;
+      margin-bottom: 35px;
+    }
+
+    .card {
+      background: #141c35;
+      border: 1px solid #293254;
+      border-radius: 22px;
+      padding: 35px;
+      margin-bottom: 25px;
+    }
+
+    .card h2 {
+      font-size: 27px;
+      margin-top: 0;
+      margin-bottom: 18px;
+    }
+
+    .card p {
+      color: #d3d8e8;
+      font-size: 18px;
+      line-height: 1.7;
+      margin-bottom: 0;
+    }
+
+    .contact {
+      text-align: center;
+      padding: 70px 25px;
+      background: #0d152b;
+    }
+
+    .contact h2 {
+      font-size: 32px;
+      margin-bottom: 15px;
+    }
+
+    .contact p {
+      color: #aeb6d2;
+      font-size: 18px;
+      line-height: 1.7;
+    }
+
+    @media (max-width: 600px) {
+      .hero h1 {
+        font-size: 42px;
+      }
+
+      .hero p {
+        font-size: 18px;
+      }
+
+      .card {
+        padding: 28px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <section class="hero">
+    <h1>💻 代码开发服务</h1>
+
+    <p>
+      有想法但不知道怎么实现？<br>
+      我可以帮你处理一些简单的代码需求。
+    </p>
+
+    <a href="#services" class="button">
+      看看能做什么
+    </a>
+  </section>
+
+  <section class="services" id="services">
+
+    <h2 class="services-title">可以帮你做这些 👇</h2>
+
+    <div class="card">
+      <h2>🐍 Python 小工具</h2>
+      <p>
+        简单脚本、数据处理、重复操作自动化等，
+        根据你的实际需求来做。
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>🌐 网页制作</h2>
+      <p>
+        简单个人网页、展示页面、HTML / CSS /
+        JavaScript 页面制作和修改。
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>🛠️ Bug 修改</h2>
+      <p>
+        代码运行报错、页面显示异常，
+        可以把代码和问题发过来一起看看。
+      </p>
+    </div>
+
+  </section>
+
+  <section class="contact" id="contact">
+    <h2>📩 有需求可以联系</h2>
+
+    <p>
+      先把你想做的东西和要求说清楚，<br>
+      能不能做、怎么做，再一起确认。
+    </p>
+  </section>
+
+</body>
+</html>
