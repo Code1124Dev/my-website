@@ -3,173 +3,627 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#060914">
 
-  <title>代码开发服务</title>
+  <title>Code1124Dev | 代码开发服务</title>
 
   <style>
     * {
       box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
-      margin: 0;
       font-family: Arial, "Microsoft YaHei", sans-serif;
-      background: #080f21;
+      color: #ffffff;
+      min-height: 100vh;
+      overflow-x: hidden;
+
+      background:
+        radial-gradient(circle at 15% 15%,
+          rgba(105, 92, 255, 0.25),
+          transparent 32%),
+
+        radial-gradient(circle at 85% 25%,
+          rgba(0, 174, 255, 0.18),
+          transparent 32%),
+
+        radial-gradient(circle at 50% 80%,
+          rgba(133, 72, 255, 0.13),
+          transparent 38%),
+
+        linear-gradient(
+          180deg,
+          #070b17 0%,
+          #080d1c 50%,
+          #04060d 100%
+        );
+
+      background-attachment: fixed;
+    }
+
+    /* 科技网格背景 */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+
+      background-image:
+        linear-gradient(
+          rgba(255,255,255,0.025) 1px,
+          transparent 1px
+        ),
+        linear-gradient(
+          90deg,
+          rgba(255,255,255,0.025) 1px,
+          transparent 1px
+        );
+
+      background-size: 45px 45px;
+    }
+
+    /* 顶部导航栏 */
+    nav {
+      width: 100%;
+      height: 68px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      padding: 0 7%;
+
+      position: fixed;
+      top: 0;
+      left: 0;
+
+      z-index: 100;
+
+      background: rgba(5, 8, 18, 0.65);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+
+      border-bottom:
+        1px solid rgba(255,255,255,0.07);
+    }
+
+    .logo {
+      font-size: 19px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+
+    .logo span {
+      color: #8378ff;
+    }
+
+    nav a {
+      color: #aeb5cc;
+      text-decoration: none;
+      font-size: 14px;
+      transition: 0.25s;
+    }
+
+    nav a:hover {
       color: white;
     }
 
+    /* 首页区域 */
     .hero {
       min-height: 100vh;
+
       display: flex;
       flex-direction: column;
-      justify-content: center;
       align-items: center;
+      justify-content: center;
+
       text-align: center;
-      padding: 40px 25px;
+
+      padding:
+        110px 24px
+        70px;
     }
 
-    .hero h1 {
-      font-size: 48px;
-      margin: 0 0 25px;
-      line-height: 1.25;
-    }
-
-    .hero p {
-      color: #aeb6d2;
-      font-size: 20px;
-      line-height: 1.7;
-      margin: 0 0 30px;
-    }
-
-    .button {
+    .tag {
       display: inline-block;
-      background: #675cff;
-      color: white;
-      text-decoration: none;
-      padding: 17px 30px;
-      border-radius: 13px;
+
+      padding: 9px 16px;
+
+      margin-bottom: 25px;
+
+      border-radius: 100px;
+
+      color: #aaa2ff;
+
+      background:
+        rgba(113, 98, 255, 0.1);
+
+      border:
+        1px solid rgba(126, 112, 255, 0.3);
+
+      font-size: 13px;
+    }
+
+    h1 {
+      font-size: clamp(45px, 10vw, 78px);
+
+      line-height: 1.08;
+
+      letter-spacing: -2px;
+
+      margin-bottom: 24px;
+    }
+
+    .gradient-text {
+      background:
+        linear-gradient(
+          90deg,
+          #8c80ff,
+          #5ac8ff
+        );
+
+      -webkit-background-clip: text;
+      background-clip: text;
+
+      -webkit-text-fill-color: transparent;
+    }
+
+    .subtitle {
+      max-width: 620px;
+
+      color: #a7aec4;
+
       font-size: 18px;
-    }
 
-    .services {
-      max-width: 900px;
-      margin: auto;
-      padding: 20px 25px 80px;
-    }
+      line-height: 1.8;
 
-    .services-title {
-      text-align: center;
-      font-size: 32px;
       margin-bottom: 35px;
     }
 
-    .card {
-      background: #141c35;
-      border: 1px solid #293254;
-      border-radius: 22px;
-      padding: 35px;
-      margin-bottom: 25px;
+    /* 按钮 */
+    .buttons {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+
+      gap: 14px;
     }
 
-    .card h2 {
-      font-size: 27px;
-      margin-top: 0;
+    .btn {
+      display: inline-block;
+
+      padding: 15px 27px;
+
+      border-radius: 13px;
+
+      text-decoration: none;
+
+      font-size: 15px;
+      font-weight: 600;
+
+      transition:
+        transform 0.25s,
+        box-shadow 0.25s,
+        background 0.25s;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+    }
+
+    .primary {
+      color: white;
+
+      background:
+        linear-gradient(
+          135deg,
+          #655aff,
+          #795fff
+        );
+
+      box-shadow:
+        0 10px 35px
+        rgba(103, 91, 255, 0.3);
+    }
+
+    .primary:hover {
+      box-shadow:
+        0 15px 45px
+        rgba(103, 91, 255, 0.45);
+    }
+
+    .secondary {
+      color: white;
+
+      background:
+        rgba(255,255,255,0.05);
+
+      border:
+        1px solid
+        rgba(255,255,255,0.13);
+    }
+
+    /* 服务区域 */
+    .services {
+      max-width: 1100px;
+
+      margin: auto;
+
+      padding:
+        90px 7%;
+    }
+
+    .section-title {
+      text-align: center;
+
+      font-size: 35px;
+
+      margin-bottom: 12px;
+    }
+
+    .section-description {
+      text-align: center;
+
+      color: #8f96ac;
+
+      margin-bottom: 45px;
+
+      line-height: 1.7;
+    }
+
+    .cards {
+      display: grid;
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
+      gap: 18px;
+    }
+
+    .card {
+      padding: 30px 26px;
+
+      border-radius: 20px;
+
+      background:
+        rgba(255,255,255,0.04);
+
+      border:
+        1px solid
+        rgba(255,255,255,0.08);
+
+      backdrop-filter: blur(10px);
+
+      transition:
+        transform 0.25s,
+        border 0.25s,
+        background 0.25s;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+
+      background:
+        rgba(255,255,255,0.065);
+
+      border-color:
+        rgba(118,103,255,0.45);
+    }
+
+    .icon {
+      font-size: 34px;
+
       margin-bottom: 18px;
     }
 
-    .card p {
-      color: #d3d8e8;
-      font-size: 18px;
-      line-height: 1.7;
-      margin-bottom: 0;
+    .card h3 {
+      font-size: 20px;
+
+      margin-bottom: 11px;
     }
 
+    .card p {
+      color: #989fb5;
+
+      font-size: 14px;
+
+      line-height: 1.75;
+    }
+
+    /* 联系区域 */
     .contact {
+      max-width: 850px;
+
+      margin:
+        60px auto 80px;
+
+      padding:
+        55px 25px;
+
       text-align: center;
-      padding: 70px 25px;
-      background: #0d152b;
+
+      border-radius: 25px;
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(104,92,255,0.14),
+          rgba(44,157,255,0.06)
+        );
+
+      border:
+        1px solid
+        rgba(255,255,255,0.08);
     }
 
     .contact h2 {
       font-size: 32px;
+
       margin-bottom: 15px;
     }
 
     .contact p {
-      color: #aeb6d2;
-      font-size: 18px;
+      color: #a3aabe;
+
       line-height: 1.7;
+
+      margin-bottom: 28px;
     }
 
-    @media (max-width: 600px) {
-      .hero h1 {
-        font-size: 42px;
+    /* 页脚 */
+    footer {
+      text-align: center;
+
+      padding:
+        30px 20px 40px;
+
+      color: #646b80;
+
+      font-size: 13px;
+    }
+
+    /* 手机适配 */
+    @media (max-width: 700px) {
+
+      nav {
+        height: 62px;
+        padding: 0 20px;
       }
 
-      .hero p {
-        font-size: 18px;
+      .logo {
+        font-size: 17px;
       }
 
-      .card {
-        padding: 28px;
+      .hero {
+        padding:
+          100px 22px
+          65px;
+      }
+
+      h1 {
+        font-size: 47px;
+        letter-spacing: -1px;
+      }
+
+      .subtitle {
+        font-size: 16px;
+      }
+
+      .buttons {
+        width: 100%;
+      }
+
+      .btn {
+        width: 100%;
+        max-width: 320px;
+      }
+
+      .services {
+        padding:
+          70px 20px;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .contact {
+        margin:
+          35px 20px
+          60px;
+
+        padding:
+          45px 22px;
+      }
+
+      .contact h2 {
+        font-size: 27px;
       }
     }
+
   </style>
 </head>
 
+
 <body>
 
-  <section class="hero">
-    <h1>💻 代码开发服务</h1>
+  <!-- 导航 -->
+  <nav>
 
-    <p>
-      有想法但不知道怎么实现？<br>
-      我可以帮你处理一些简单的代码需求。
-    </p>
+    <div class="logo">
+      &lt;<span>Code1124</span>/&gt;
+    </div>
 
-    <a href="#services" class="button">
-      看看能做什么
+    <a href="#services">
+      服务项目
     </a>
+
+  </nav>
+
+
+  <!-- 首页 -->
+  <section class="hero">
+
+    <div class="tag">
+      💻 Code1124Dev · Development
+    </div>
+
+    <h1>
+      把你的想法
+      <br>
+
+      <span class="gradient-text">
+        变成代码
+      </span>
+    </h1>
+
+    <p class="subtitle">
+
+      有想法，但不知道怎么实现？
+
+      <br>
+
+      我可以帮你处理简单的网页、
+      代码修改以及一些小型开发需求。
+
+    </p>
+
+
+    <div class="buttons">
+
+      <a
+        class="btn primary"
+        href="#services"
+      >
+        查看服务 ↓
+      </a>
+
+
+      <a
+        class="btn secondary"
+        href="mailto:2591705357@qq.com"
+      >
+        ✉️ 联系我
+      </a>
+
+    </div>
+
   </section>
 
-  <section class="services" id="services">
 
-    <h2 class="services-title">可以帮你做这些 👇</h2>
+  <!-- 服务 -->
+  <section
+    class="services"
+    id="services"
+  >
 
-    <div class="card">
-      <h2>🐍 Python 小工具</h2>
-      <p>
-        简单脚本、数据处理、重复操作自动化等，
-        根据你的实际需求来做。
-      </p>
-    </div>
+    <h2 class="section-title">
+      可以做什么？
+    </h2>
 
-    <div class="card">
-      <h2>🌐 网页制作</h2>
-      <p>
-        简单个人网页、展示页面、HTML / CSS /
-        JavaScript 页面制作和修改。
-      </p>
-    </div>
+    <p class="section-description">
+      简单、快速地帮你实现一些代码需求
+    </p>
 
-    <div class="card">
-      <h2>🛠️ Bug 修改</h2>
-      <p>
-        代码运行报错、页面显示异常，
-        可以把代码和问题发过来一起看看。
-      </p>
+
+    <div class="cards">
+
+      <div class="card">
+
+        <div class="icon">
+          🌐
+        </div>
+
+        <h3>
+          网页制作
+        </h3>
+
+        <p>
+          个人主页、展示页面、
+          活动页面以及一些简单的网站制作。
+        </p>
+
+      </div>
+
+
+      <div class="card">
+
+        <div class="icon">
+          🛠️
+        </div>
+
+        <h3>
+          代码修改
+        </h3>
+
+        <p>
+          修改现有代码、调整网页样式、
+          修复一些简单的问题。
+        </p>
+
+      </div>
+
+
+      <div class="card">
+
+        <div class="icon">
+          💡
+        </div>
+
+        <h3>
+          想法实现
+        </h3>
+
+        <p>
+          有一个小项目或者自己的想法？
+          可以一起研究如何把它实现出来。
+        </p>
+
+      </div>
+
     </div>
 
   </section>
 
-  <section class="contact" id="contact">
-    <h2>📩 有需求可以联系</h2>
+
+  <!-- 联系 -->
+  <section class="contact">
+
+    <h2>
+      有想法？聊聊吧 👋
+    </h2>
 
     <p>
-      先把你想做的东西和要求说清楚，<br>
-      能不能做、怎么做，再一起确认。
+      告诉我你想实现什么，
+      <br>
+      我会看看能不能帮你完成。
     </p>
+
+
+    <a
+      class="btn primary"
+      href="mailto:2591705357@qq.com"
+    >
+      ✉️ 发送邮件
+    </a>
+
   </section>
+
+
+  <!-- 页脚 -->
+  <footer>
+
+    © 2026 Code1124Dev
+    · Built with ❤️
+
+  </footer>
 
 </body>
 </html>
