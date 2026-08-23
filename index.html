@@ -1,523 +1,1368 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>代码开发服务｜网页制作・功能开发</title>
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Code1124Dev | Web Development</title>
 
   <meta
     name="description"
-    content="提供网页制作、代码开发、功能修改、BUG修复与简单项目开发服务。"
+    content="Web development, feature development, bug fixes and coding services."
   >
 
   <meta name="robots" content="index, follow">
-  <meta name="theme-color" content="#070b18">
+
+  <meta name="theme-color" content="#050712">
+
 
   <style>
+
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
 
+
     html {
       scroll-behavior: smooth;
     }
 
+
     body {
-      font-family: Arial, "Microsoft YaHei", sans-serif;
-      background:
-        radial-gradient(circle at 50% 15%, #19214d 0%, #0b1024 35%, #060914 75%);
-      color: white;
       min-height: 100vh;
+
+      font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        "Microsoft YaHei",
+        Arial,
+        sans-serif;
+
+      color: white;
+
+      background:
+        linear-gradient(
+          180deg,
+          #050712 0%,
+          #080b19 50%,
+          #04060d 100%
+        );
+
       overflow-x: hidden;
     }
 
-    /* ===== 高级语言菜单 ===== */
+
+
+    /* =========================
+       背景
+    ========================= */
+
+    .background {
+      position: fixed;
+      inset: 0;
+      z-index: -5;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+
+    .grid {
+      position: absolute;
+      inset: 0;
+
+      background-image:
+        linear-gradient(
+          rgba(255,255,255,.025) 1px,
+          transparent 1px
+        ),
+
+        linear-gradient(
+          90deg,
+          rgba(255,255,255,.025) 1px,
+          transparent 1px
+        );
+
+      background-size: 50px 50px;
+
+      mask-image:
+        linear-gradient(
+          to bottom,
+          black,
+          transparent 90%
+        );
+    }
+
+
+    .glow {
+      position: absolute;
+
+      width: 550px;
+      height: 550px;
+
+      border-radius: 50%;
+
+      filter: blur(115px);
+
+      opacity: .3;
+    }
+
+
+    .glow1 {
+      top: -180px;
+      left: -180px;
+
+      background: #6c4cff;
+
+      animation:
+        move1
+        14s ease-in-out
+        infinite alternate;
+    }
+
+
+    .glow2 {
+      top: 15%;
+      right: -240px;
+
+      background: #008cff;
+
+      opacity: .22;
+
+      animation:
+        move2
+        17s ease-in-out
+        infinite alternate;
+    }
+
+
+    .glow3 {
+      bottom: -260px;
+      left: 35%;
+
+      background: #9d3cff;
+
+      opacity: .16;
+
+      animation:
+        move3
+        20s ease-in-out
+        infinite alternate;
+    }
+
+
+    @keyframes move1 {
+      to {
+        transform:
+          translate(120px, 100px)
+          scale(1.15);
+      }
+    }
+
+
+    @keyframes move2 {
+      to {
+        transform:
+          translate(-130px, 140px);
+      }
+    }
+
+
+    @keyframes move3 {
+      to {
+        transform:
+          translate(100px, -110px)
+          scale(1.2);
+      }
+    }
+
+
+
+    /* =========================
+       顶部导航
+    ========================= */
+
+    nav {
+      position: fixed;
+
+      top: 0;
+      left: 0;
+
+      width: 100%;
+      height: 70px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      padding:
+        0 max(16px, 5vw);
+
+      z-index: 1000;
+
+      background:
+        rgba(5,7,18,.58);
+
+      backdrop-filter:
+        blur(22px);
+
+      -webkit-backdrop-filter:
+        blur(22px);
+
+      border-bottom:
+        1px solid
+        rgba(255,255,255,.07);
+    }
+
+
+    .logo {
+      font-size: 19px;
+      font-weight: 700;
+    }
+
+
+    .logo span {
+      color: #8c7cff;
+    }
+
+
+
+    /* =========================
+       语言
+    ========================= */
+
+    .language-area {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+
+    .language-text {
+      color: #aeb5cc;
+      font-size: 14px;
+    }
+
 
     .language-box {
-      position: fixed;
-      top: 18px;
-      right: 18px;
-      z-index: 9999;
+      position: relative;
     }
+
 
     .language-button {
       display: flex;
       align-items: center;
       gap: 8px;
 
-      padding: 11px 16px;
+      padding:
+        10px 14px;
 
-      border: 1px solid rgba(255,255,255,.15);
-      border-radius: 14px;
+      border:
+        1px solid
+        rgba(255,255,255,.13);
 
-      background: rgba(15,20,40,.68);
+      border-radius: 13px;
+
+      background:
+        rgba(255,255,255,.06);
+
       color: white;
 
-      backdrop-filter: blur(18px);
-      -webkit-backdrop-filter: blur(18px);
-
-      box-shadow:
-        0 8px 30px rgba(0,0,0,.25);
-
-      font-size: 14px;
       cursor: pointer;
 
-      transition: .25s;
+      font-size: 14px;
     }
 
-    .language-button:hover {
-      background: rgba(255,255,255,.12);
-      transform: translateY(-1px);
-    }
-
-    .arrow {
-      font-size: 11px;
-      opacity: .7;
-      transition: .2s;
-    }
-
-    .language-box.open .arrow {
-      transform: rotate(180deg);
-    }
 
     .language-menu {
       position: absolute;
-      right: 0;
-      top: 52px;
 
-      width: 170px;
+      right: 0;
+      top: 50px;
+
+      width: 200px;
 
       padding: 8px;
 
-      border: 1px solid rgba(255,255,255,.12);
-      border-radius: 16px;
+      border-radius: 17px;
 
-      background: rgba(10,14,28,.88);
+      border:
+        1px solid
+        rgba(255,255,255,.1);
 
-      backdrop-filter: blur(22px);
-      -webkit-backdrop-filter: blur(22px);
+      background:
+        rgba(10,13,28,.95);
+
+      backdrop-filter:
+        blur(28px);
 
       box-shadow:
-        0 15px 45px rgba(0,0,0,.38);
+        0 20px 70px
+        rgba(0,0,0,.45);
 
       opacity: 0;
-      transform: translateY(-8px) scale(.97);
+
+      transform:
+        translateY(-8px)
+        scale(.97);
+
       pointer-events: none;
 
       transition: .2s;
     }
 
-    .language-box.open .language-menu {
+
+    .language-box.open
+    .language-menu {
       opacity: 1;
-      transform: translateY(0) scale(1);
+
+      transform:
+        translateY(0)
+        scale(1);
+
       pointer-events: auto;
     }
 
+
     .language-option {
       width: 100%;
+
+      padding:
+        12px 13px;
+
       display: flex;
       align-items: center;
       gap: 10px;
 
-      padding: 12px 13px;
+      border: 0;
 
-      border: none;
       border-radius: 11px;
 
       background: transparent;
-      color: white;
+
+      color: #e8eaf4;
 
       font-size: 14px;
-      text-align: left;
 
       cursor: pointer;
-      transition: .2s;
+
+      text-align: left;
     }
+
 
     .language-option:hover {
-      background: rgba(255,255,255,.09);
+      background:
+        rgba(255,255,255,.07);
     }
+
 
     .language-option.active {
-      background: rgba(106,92,255,.17);
-      color: #bdb7ff;
+      background:
+        rgba(110,92,255,.16);
+
+      color: #c2bbff;
     }
 
-    /* ===== 页面主体 ===== */
+
+
+    /* =========================
+       首页
+    ========================= */
 
     .hero {
       min-height: 100vh;
 
       display: flex;
       flex-direction: column;
+
       justify-content: center;
       align-items: center;
 
       text-align: center;
 
-      padding: 50px 22px;
+      padding:
+        120px 22px 70px;
     }
+
 
     .badge {
-      padding: 8px 16px;
+      padding:
+        8px 16px;
 
-      border: 1px solid rgba(255,255,255,.12);
+      margin-bottom:
+        25px;
 
-      background: rgba(255,255,255,.06);
+      border-radius:
+        999px;
 
-      border-radius: 999px;
+      border:
+        1px solid
+        rgba(255,255,255,.1);
 
-      color: #c8cbea;
+      background:
+        rgba(255,255,255,.045);
 
-      font-size: 14px;
+      color:
+        #c1c6dc;
 
-      margin-bottom: 24px;
+      font-size:
+        13px;
 
-      backdrop-filter: blur(10px);
+      backdrop-filter:
+        blur(15px);
     }
 
-    h1 {
-      font-size: clamp(42px, 9vw, 72px);
 
-      line-height: 1.15;
+    .hero h1 {
+      font-size:
+        clamp(
+          44px,
+          9vw,
+          82px
+        );
 
-      margin-bottom: 22px;
+      line-height:
+        1.05;
 
-      letter-spacing: -2px;
+      letter-spacing:
+        -2px;
+
+      margin-bottom:
+        26px;
     }
+
 
     .gradient {
       background:
         linear-gradient(
           90deg,
-          #927cff,
-          #626cff,
-          #62b7ff
+          #a38cff,
+          #7268ff,
+          #55c8ff
         );
 
-      -webkit-background-clip: text;
-      background-clip: text;
+      -webkit-background-clip:
+        text;
 
-      -webkit-text-fill-color: transparent;
+      background-clip:
+        text;
+
+      -webkit-text-fill-color:
+        transparent;
     }
+
 
     .subtitle {
-      color: #aeb6d2;
+      max-width:
+        700px;
 
-      font-size: 19px;
+      color:
+        #9fa8c3;
 
-      line-height: 1.8;
+      font-size:
+        18px;
 
-      max-width: 650px;
+      line-height:
+        1.9;
 
-      margin-bottom: 34px;
+      margin-bottom:
+        35px;
     }
+
 
     .buttons {
       display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
       justify-content: center;
+      flex-wrap: wrap;
+      gap: 13px;
     }
 
-    .btn {
-      display: inline-block;
 
-      padding: 15px 27px;
+    .button {
+      display:
+        inline-flex;
 
-      border-radius: 14px;
+      align-items:
+        center;
 
-      text-decoration: none;
+      justify-content:
+        center;
 
-      font-size: 17px;
+      min-width:
+        155px;
 
-      transition: .25s;
+      padding:
+        15px 25px;
+
+      border-radius:
+        13px;
+
+      text-decoration:
+        none;
+
+      color:
+        white;
+
+      font-size:
+        15px;
+
+      font-weight:
+        600;
+
+      transition:
+        .25s;
     }
+
 
     .primary {
-      color: white;
-
       background:
         linear-gradient(
           135deg,
-          #735cff,
-          #5368ff
+          #6c59ff,
+          #566fff
         );
 
       box-shadow:
-        0 10px 35px
-        rgba(91,92,255,.3);
+        0 12px 40px
+        rgba(96,83,255,.3);
     }
+
 
     .secondary {
-      color: #dce0ff;
+      background:
+        rgba(255,255,255,.045);
 
       border:
-        1px solid rgba(255,255,255,.14);
-
-      background:
-        rgba(255,255,255,.05);
+        1px solid
+        rgba(255,255,255,.12);
     }
 
-    .btn:hover {
-      transform: translateY(-3px);
+
+    .button:hover {
+      transform:
+        translateY(-3px);
     }
 
-    /* ===== 服务 ===== */
 
-    .services {
-      padding: 80px 20px;
 
-      max-width: 1050px;
+    /* =========================
+       服务
+    ========================= */
 
-      margin: auto;
+    .section {
+      max-width:
+        1100px;
+
+      margin:
+        auto;
+
+      padding:
+        90px 22px;
     }
 
-    .services h2 {
-      text-align: center;
 
-      font-size: 34px;
+    .section-title {
+      text-align:
+        center;
 
-      margin-bottom: 45px;
+      font-size:
+        34px;
+
+      margin-bottom:
+        12px;
     }
+
+
+    .section-desc {
+      text-align:
+        center;
+
+      color:
+        #858fa9;
+
+      margin-bottom:
+        42px;
+    }
+
 
     .cards {
-      display: grid;
+      display:
+        grid;
 
       grid-template-columns:
         repeat(3, 1fr);
 
-      gap: 18px;
+      gap:
+        18px;
     }
+
 
     .card {
-      background:
-        rgba(255,255,255,.05);
+      padding:
+        28px;
+
+      border-radius:
+        22px;
 
       border:
-        1px solid rgba(255,255,255,.09);
+        1px solid
+        rgba(255,255,255,.075);
 
-      border-radius: 20px;
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255,255,255,.055),
+          rgba(255,255,255,.025)
+        );
 
-      padding: 28px;
+      backdrop-filter:
+        blur(18px);
 
-      backdrop-filter: blur(12px);
-
-      transition: .25s;
+      transition:
+        .25s;
     }
+
 
     .card:hover {
-      transform: translateY(-5px);
+      transform:
+        translateY(-7px);
 
       border-color:
-        rgba(120,110,255,.5);
+        rgba(122,102,255,.4);
     }
+
 
     .icon {
-      font-size: 32px;
+      font-size:
+        34px;
 
-      margin-bottom: 18px;
+      margin-bottom:
+        20px;
     }
+
 
     .card h3 {
-      font-size: 20px;
-
-      margin-bottom: 12px;
+      margin-bottom:
+        12px;
     }
+
 
     .card p {
-      color: #9da6c6;
+      color:
+        #969fb9;
 
-      line-height: 1.7;
+      line-height:
+        1.75;
 
-      font-size: 15px;
+      font-size:
+        15px;
     }
 
-    /* ===== 联系方式 ===== */
 
-    .contact {
-      text-align: center;
 
-      padding: 90px 20px;
+    /* =========================
+       客服按钮
+    ========================= */
+
+    .ai-support {
+      position:
+        fixed;
+
+      right:
+        18px;
+
+      bottom:
+        18px;
+
+      z-index:
+        5000;
     }
 
-    .contact h2 {
-      font-size: 34px;
 
-      margin-bottom: 15px;
-    }
+    .ai-button {
+      width:
+        60px;
 
-    .contact-text {
-      color: #9da6c6;
+      height:
+        60px;
 
-      margin-bottom: 30px;
-    }
+      border:
+        none;
 
-    .contact-buttons {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+      border-radius:
+        50%;
 
-      gap: 13px;
-    }
-
-    .email {
-      display: block;
-
-      width: min(460px, 92%);
-
-      padding: 16px 20px;
-
-      border-radius: 14px;
-
-      color: white;
-
-      text-decoration: none;
-
-      font-size: 16px;
-
-      word-break: break-all;
-
-      transition: .25s;
-    }
-
-    .email.qq {
       background:
         linear-gradient(
           135deg,
           #735cff,
-          #5368ff
+          #477cff
+        );
+
+      box-shadow:
+        0 14px 45px
+        rgba(79,92,255,.45);
+
+      color:
+        white;
+
+      font-size:
+        25px;
+
+      cursor:
+        pointer;
+
+      transition:
+        .25s;
+    }
+
+
+    .ai-button:hover {
+      transform:
+        scale(1.05)
+        translateY(-2px);
+    }
+
+
+
+    /* =========================
+       客服窗口
+    ========================= */
+
+    .chat-window {
+      position:
+        absolute;
+
+      right:
+        0;
+
+      bottom:
+        75px;
+
+      width:
+        360px;
+
+      height:
+        520px;
+
+      display:
+        flex;
+
+      flex-direction:
+        column;
+
+      border-radius:
+        24px;
+
+      overflow:
+        hidden;
+
+      border:
+        1px solid
+        rgba(255,255,255,.1);
+
+      background:
+        rgba(8,11,24,.96);
+
+      backdrop-filter:
+        blur(28px);
+
+      box-shadow:
+        0 25px 80px
+        rgba(0,0,0,.55);
+
+      opacity:
+        0;
+
+      transform:
+        translateY(10px)
+        scale(.96);
+
+      pointer-events:
+        none;
+
+      transition:
+        .22s;
+    }
+
+
+    .ai-support.open
+    .chat-window {
+      opacity:
+        1;
+
+      transform:
+        translateY(0)
+        scale(1);
+
+      pointer-events:
+        auto;
+    }
+
+
+    .chat-header {
+      padding:
+        17px 18px;
+
+      display:
+        flex;
+
+      justify-content:
+        space-between;
+
+      align-items:
+        center;
+
+      border-bottom:
+        1px solid
+        rgba(255,255,255,.07);
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(108,89,255,.17),
+          rgba(55,120,255,.08)
         );
     }
 
-    .email.gmail {
+
+    .agent {
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      gap:
+        11px;
+    }
+
+
+    .agent-avatar {
+      width:
+        39px;
+
+      height:
+        39px;
+
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      justify-content:
+        center;
+
+      border-radius:
+        13px;
+
+      background:
+        linear-gradient(
+          135deg,
+          #715bff,
+          #4c7bff
+        );
+    }
+
+
+    .agent-name {
+      font-weight:
+        700;
+
+      font-size:
+        15px;
+    }
+
+
+    .agent-status {
+      margin-top:
+        3px;
+
+      color:
+        #8fe6ad;
+
+      font-size:
+        11px;
+    }
+
+
+    .close-chat {
+      border:
+        none;
+
+      background:
+        transparent;
+
+      color:
+        #aaaec0;
+
+      font-size:
+        22px;
+
+      cursor:
+        pointer;
+    }
+
+
+
+    /* 消息 */
+    .chat-messages {
+      flex:
+        1;
+
+      overflow-y:
+        auto;
+
+      padding:
+        16px;
+
+      display:
+        flex;
+
+      flex-direction:
+        column;
+
+      gap:
+        12px;
+    }
+
+
+    .message {
+      max-width:
+        85%;
+
+      padding:
+        11px 13px;
+
+      border-radius:
+        15px;
+
+      font-size:
+        14px;
+
+      line-height:
+        1.55;
+    }
+
+
+    .bot {
+      align-self:
+        flex-start;
+
       background:
         rgba(255,255,255,.07);
 
       border:
-        1px solid rgba(255,255,255,.14);
+        1px solid
+        rgba(255,255,255,.07);
+
+      color:
+        #e4e6ee;
+
+      border-bottom-left-radius:
+        5px;
     }
 
-    .email:hover {
-      transform: translateY(-3px);
+
+    .user {
+      align-self:
+        flex-end;
+
+      background:
+        linear-gradient(
+          135deg,
+          #705cff,
+          #4f78ff
+        );
+
+      color:
+        white;
+
+      border-bottom-right-radius:
+        5px;
     }
 
-    footer {
-      text-align: center;
 
-      color: #66708e;
 
-      font-size: 13px;
+    /* 推荐问题 */
+    .quick-area {
+      padding:
+        0 14px 10px;
 
-      padding: 30px;
+      display:
+        flex;
+
+      flex-wrap:
+        wrap;
+
+      gap:
+        7px;
     }
 
-    /* ===== 手机适配 ===== */
 
-    @media (max-width: 750px) {
+    .quick-question {
+      border:
+        1px solid
+        rgba(255,255,255,.1);
 
-      .cards {
-        grid-template-columns: 1fr;
+      background:
+        rgba(255,255,255,.045);
+
+      color:
+        #bbc1d4;
+
+      padding:
+        7px 10px;
+
+      border-radius:
+        999px;
+
+      font-size:
+        11px;
+
+      cursor:
+        pointer;
+    }
+
+
+    .quick-question:hover {
+      background:
+        rgba(255,255,255,.09);
+
+      color:
+        white;
+    }
+
+
+
+    /* 输入框 */
+    .chat-input-area {
+      padding:
+        12px;
+
+      border-top:
+        1px solid
+        rgba(255,255,255,.07);
+
+      display:
+        flex;
+
+      gap:
+        8px;
+    }
+
+
+    .chat-input {
+      flex:
+        1;
+
+      border:
+        1px solid
+        rgba(255,255,255,.09);
+
+      background:
+        rgba(255,255,255,.05);
+
+      color:
+        white;
+
+      border-radius:
+        13px;
+
+      padding:
+        12px 13px;
+
+      outline:
+        none;
+
+      font-size:
+        14px;
+    }
+
+
+    .chat-input:focus {
+      border-color:
+        rgba(110,92,255,.6);
+    }
+
+
+    .send-button {
+      width:
+        43px;
+
+      border:
+        none;
+
+      border-radius:
+        13px;
+
+      background:
+        linear-gradient(
+          135deg,
+          #705cff,
+          #4f7aff
+        );
+
+      color:
+        white;
+
+      font-size:
+        17px;
+
+      cursor:
+        pointer;
+    }
+
+
+
+    /* =========================
+       手机
+    ========================= */
+
+    @media
+    (max-width: 750px) {
+
+      nav {
+        height:
+          64px;
+
+        padding:
+          0 12px;
       }
 
-      h1 {
-        letter-spacing: -1px;
+
+      .logo {
+        font-size:
+          15px;
       }
 
-      .subtitle {
-        font-size: 17px;
+
+      .language-text {
+        display:
+          none;
       }
 
-      .language-box {
-        top: 12px;
-        right: 12px;
-      }
 
       .language-button {
-        padding: 10px 13px;
+        padding:
+          9px 11px;
       }
 
-      .language-menu {
-        width: 160px;
+
+      .cards {
+        grid-template-columns:
+          1fr;
       }
+
+
+      .hero h1 {
+        font-size:
+          47px;
+      }
+
+
+      .subtitle {
+        font-size:
+          16px;
+      }
+
+
+      .section {
+        padding:
+          70px 20px;
+      }
+
+
+      .ai-support {
+        right:
+          12px;
+
+        bottom:
+          12px;
+      }
+
+
+      .chat-window {
+        position:
+          fixed;
+
+        left:
+          10px;
+
+        right:
+          10px;
+
+        bottom:
+          82px;
+
+        width:
+          auto;
+
+        height:
+          min(570px, 72vh);
+      }
+
     }
+
   </style>
+
 </head>
 
 
 <body>
 
-  <!-- 右上角语言菜单 -->
-  <div class="language-box" id="languageBox">
 
-    <button
-      class="language-button"
-      onclick="toggleLanguageMenu()"
-    >
-      🌐
-      <span id="languageLabel">语言</span>
-      <span class="arrow">▼</span>
-    </button>
+  <!-- 背景 -->
+  <div class="background">
+
+    <div class="grid"></div>
+
+    <div class="glow glow1"></div>
+
+    <div class="glow glow2"></div>
+
+    <div class="glow glow3"></div>
+
+  </div>
 
 
-    <div class="language-menu">
 
-      <button
-        class="language-option active"
-        id="zhOption"
-        onclick="setLanguage('zh')"
+  <!-- 顶部 -->
+  <nav>
+
+    <div class="logo">
+      &lt;<span>Code1124</span>/&gt;
+    </div>
+
+
+    <div class="language-area">
+
+      <span
+        class="language-text"
+        id="languageTitle"
       >
-        🇨🇳 中文
-      </button>
+        Language
+      </span>
 
-      <button
-        class="language-option"
-        id="enOption"
-        onclick="setLanguage('en')"
+
+      <div
+        class="language-box"
+        id="languageBox"
       >
-        🇺🇸 English
-      </button>
+
+        <button
+          class="language-button"
+          id="languageButton"
+        >
+
+          🌐
+
+          <span id="languageLabel">
+            English
+          </span>
+
+          ▾
+
+        </button>
+
+
+        <div class="language-menu">
+
+          <button
+            class="language-option active"
+            onclick="setLanguage('en')"
+            id="lang-en"
+          >
+            🇺🇸 English
+          </button>
+
+
+          <button
+            class="language-option"
+            onclick="setLanguage('zh')"
+            id="lang-zh"
+          >
+            🇨🇳 中文
+          </button>
+
+
+          <button
+            class="language-option"
+            onclick="setLanguage('ja')"
+            id="lang-ja"
+          >
+            🇯🇵 日本語
+          </button>
+
+
+          <button
+            class="language-option"
+            onclick="setLanguage('ko')"
+            id="lang-ko"
+          >
+            🇰🇷 한국어
+          </button>
+
+
+          <button
+            class="language-option"
+            onclick="setLanguage('es')"
+            id="lang-es"
+          >
+            🇪🇸 Español
+          </button>
+
+
+          <button
+            class="language-option"
+            onclick="setLanguage('fr')"
+            id="lang-fr"
+          >
+            🇫🇷 Français
+          </button>
+
+        </div>
+
+      </div>
 
     </div>
 
-  </div>
+  </nav>
+
 
 
   <!-- 首页 -->
   <section class="hero">
 
-    <div class="badge">
-      💻 Code1124Dev ·
-      <span
-        data-zh="代码开发"
-        data-en="Development"
-      >
-        代码开发
-      </span>
+    <div
+      class="badge"
+      id="badge"
+    >
+      💻 Code1124Dev · Development
     </div>
 
 
     <h1>
 
-      <span
-        data-zh="把你的想法"
-        data-en="Turn Your Ideas"
-      >
-        把你的想法
+      <span id="title1">
+        Turn Your Ideas
       </span>
 
       <br>
 
       <span
         class="gradient"
-        data-zh="变成代码"
-        data-en="Into Code"
+        id="title2"
       >
-        变成代码
+        Into Code
       </span>
 
     </h1>
@@ -525,10 +1370,11 @@
 
     <p
       class="subtitle"
-      data-zh="网页制作 · 功能开发 · BUG 修复 · 页面优化｜有想法但不知道怎么实现？我可以帮你处理简单的代码需求。"
-      data-en="Web Development · Feature Development · Bug Fixes · Optimization | Have an idea but don't know how to build it? I can help."
+      id="subtitle"
     >
-      网页制作 · 功能开发 · BUG 修复 · 页面优化｜有想法但不知道怎么实现？我可以帮你处理简单的代码需求。
+      Web Development · Features · Bug Fixes · Optimization
+      <br>
+      Have an idea? I can help turn it into code.
     </p>
 
 
@@ -536,39 +1382,49 @@
 
       <a
         href="#services"
-        class="btn primary"
-        data-zh="看看能做什么 →"
-        data-en="View Services →"
+        class="button primary"
+        id="viewServices"
       >
-        看看能做什么 →
+        View Services →
       </a>
 
-      <a
-        href="#contact"
-        class="btn secondary"
-        data-zh="联系我"
-        data-en="Contact Me"
+
+      <button
+        class="button secondary"
+        id="askAiButton"
+        onclick="openChat()"
+        style="cursor:pointer"
       >
-        联系我
-      </a>
+        Ask AI Support
+      </button>
 
     </div>
 
   </section>
 
 
+
   <!-- 服务 -->
   <section
-    class="services"
+    class="section"
     id="services"
   >
 
     <h2
-      data-zh="可以做什么"
-      data-en="What I Can Do"
+      class="section-title"
+      id="servicesTitle"
     >
-      可以做什么
+      What Can I Build?
     </h2>
+
+
+    <p
+      class="section-desc"
+      id="servicesDesc"
+    >
+      Simple and efficient development
+      for your ideas
+    </p>
 
 
     <div class="cards">
@@ -580,21 +1436,21 @@
           🌐
         </div>
 
-        <h3
-          data-zh="网页制作"
-          data-en="Web Development"
-        >
-          网页制作
+        <h3 id="webTitle">
+          Web Development
         </h3>
 
-        <p
-          data-zh="制作简单网站、个人主页、展示页面、活动页面以及移动端网页。"
-          data-en="Simple websites, personal pages, landing pages and mobile-friendly web pages."
-        >
-          制作简单网站、个人主页、展示页面、活动页面以及移动端网页。
+        <p id="webText">
+
+          Personal websites,
+          landing pages,
+          responsive pages
+          and simple web projects.
+
         </p>
 
       </div>
+
 
 
       <div class="card">
@@ -603,21 +1459,20 @@
           ⚡
         </div>
 
-        <h3
-          data-zh="功能开发"
-          data-en="Feature Development"
-        >
-          功能开发
+        <h3 id="featureTitle">
+          Feature Development
         </h3>
 
-        <p
-          data-zh="根据需求添加网页功能，使用 HTML、CSS、JavaScript 等技术实现。"
-          data-en="Build website features using HTML, CSS, JavaScript and other technologies."
-        >
-          根据需求添加网页功能，使用 HTML、CSS、JavaScript 等技术实现。
+        <p id="featureText">
+
+          HTML, CSS and JavaScript
+          functionality built around
+          your requirements.
+
         </p>
 
       </div>
+
 
 
       <div class="card">
@@ -626,18 +1481,17 @@
           🛠️
         </div>
 
-        <h3
-          data-zh="修改与修复"
-          data-en="Fixes & Improvements"
-        >
-          修改与修复
+        <h3 id="fixTitle">
+          Fixes & Improvements
         </h3>
 
-        <p
-          data-zh="修改已有代码、调整页面样式、修复简单 BUG 和优化页面体验。"
-          data-en="Modify existing code, improve designs, fix bugs and optimize website experiences."
-        >
-          修改已有代码、调整页面样式、修复简单 BUG 和优化页面体验。
+        <p id="fixText">
+
+          Bug fixes,
+          layout improvements,
+          code changes
+          and optimization.
+
         </p>
 
       </div>
@@ -648,143 +1502,1216 @@
   </section>
 
 
-  <!-- 联系 -->
-  <section
-    class="contact"
-    id="contact"
+
+  <!-- AI 客服 -->
+  <div
+    class="ai-support"
+    id="aiSupport"
   >
 
-    <h2
-      data-zh="有需求？"
-      data-en="Have a Project?"
+
+    <button
+      class="ai-button"
+      onclick="toggleChat()"
     >
-      有需求？
-    </h2>
+      ✦
+    </button>
 
 
-    <p
-      class="contact-text"
-      data-zh="把你的需求发给我，可以先沟通具体实现方式。"
-      data-en="Send me your requirements and we can discuss how to build it."
-    >
-      把你的需求发给我，可以先沟通具体实现方式。
-    </p>
+    <div class="chat-window">
 
 
-    <div class="contact-buttons">
+      <div class="chat-header">
 
-      <a
-        class="email qq"
-        href="mailto:2591705357@qq.com"
+        <div class="agent">
+
+          <div class="agent-avatar">
+            ✦
+          </div>
+
+
+          <div>
+
+            <div
+              class="agent-name"
+              id="agentName"
+            >
+              Code AI
+            </div>
+
+            <div
+              class="agent-status"
+              id="agentStatus"
+            >
+              ● Online
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <button
+          class="close-chat"
+          onclick="toggleChat()"
+        >
+          ×
+        </button>
+
+      </div>
+
+
+
+      <div
+        class="chat-messages"
+        id="chatMessages"
       >
-        📩 QQ：2591705357@qq.com
-      </a>
+      </div>
 
 
-      <a
-        class="email gmail"
-        href="mailto:Hujiajinbao20141124@gmail.com"
+
+      <div
+        class="quick-area"
+        id="quickArea"
       >
-        ✉️ Gmail：Hujiajinbao20141124@gmail.com
-      </a>
+      </div>
+
+
+
+      <div class="chat-input-area">
+
+        <input
+          class="chat-input"
+          id="chatInput"
+          placeholder="Ask me something..."
+          autocomplete="off"
+        >
+
+        <button
+          class="send-button"
+          onclick="sendMessage()"
+        >
+          ➤
+        </button>
+
+      </div>
+
 
     </div>
 
-  </section>
+  </div>
 
-
-  <footer>
-    © 2026 Code1124Dev · Code Development Service
-  </footer>
 
 
   <script>
 
-    let currentLanguage = "zh";
+    /* =========================
+       多语言
+    ========================= */
 
-    const languageBox =
-      document.getElementById("languageBox");
-
-    const languageLabel =
-      document.getElementById("languageLabel");
-
-    const zhOption =
-      document.getElementById("zhOption");
-
-    const enOption =
-      document.getElementById("enOption");
+    let currentLanguage =
+      localStorage.getItem(
+        "language"
+      )
+      || "en";
 
 
-    function toggleLanguageMenu() {
+    const translations = {
 
-      languageBox.classList.toggle("open");
+      en: {
+
+        label: "English",
+
+        language: "Language",
+
+        badge:
+          "💻 Code1124Dev · Development",
+
+        title1:
+          "Turn Your Ideas",
+
+        title2:
+          "Into Code",
+
+        subtitle:
+          "Web Development · Features · Bug Fixes · Optimization<br>Have an idea? I can help turn it into code.",
+
+        view:
+          "View Services →",
+
+        ask:
+          "Ask AI Support",
+
+        services:
+          "What Can I Build?",
+
+        desc:
+          "Simple and efficient development for your ideas",
+
+        webTitle:
+          "Web Development",
+
+        webText:
+          "Personal websites, landing pages, responsive pages and simple web projects.",
+
+        featureTitle:
+          "Feature Development",
+
+        featureText:
+          "HTML, CSS and JavaScript functionality built around your requirements.",
+
+        fixTitle:
+          "Fixes & Improvements",
+
+        fixText:
+          "Bug fixes, layout improvements, code changes and optimization.",
+
+        placeholder:
+          "Ask me something...",
+
+        greeting:
+          "Hi 👋 I'm Code AI. I can help with pricing, web development, bug fixes, project timelines and contact information.",
+
+        quick:
+          [
+            "How much does it cost?",
+            "Can you build a website?",
+            "How long does it take?",
+            "Contact developer"
+          ]
+
+      },
+
+
+      zh: {
+
+        label: "中文",
+
+        language: "语言",
+
+        badge:
+          "💻 Code1124Dev · 代码开发",
+
+        title1:
+          "把你的想法",
+
+        title2:
+          "变成代码",
+
+        subtitle:
+          "网页制作 · 功能开发 · BUG 修复 · 页面优化<br>有想法但不知道怎么实现？我可以帮你处理。",
+
+        view:
+          "查看服务 →",
+
+        ask:
+          "咨询 AI 客服",
+
+        services:
+          "可以做什么？",
+
+        desc:
+          "简单、快速地帮你实现代码需求",
+
+        webTitle:
+          "网页制作",
+
+        webText:
+          "个人主页、展示页、响应式网页和简单网站项目。",
+
+        featureTitle:
+          "功能开发",
+
+        featureText:
+          "根据需求使用 HTML、CSS、JavaScript 开发网页功能。",
+
+        fixTitle:
+          "修改与修复",
+
+        fixText:
+          "BUG 修复、页面调整、代码修改和体验优化。",
+
+        placeholder:
+          "输入你的问题...",
+
+        greeting:
+          "你好 👋 我是 Code AI。你可以问我价格、网页制作、BUG 修改、开发时间或者联系方式。",
+
+        quick:
+          [
+            "大概多少钱？",
+            "可以做网站吗？",
+            "多久能完成？",
+            "联系开发者"
+          ]
+
+      },
+
+
+      ja: {
+
+        label: "日本語",
+
+        language: "言語",
+
+        badge:
+          "💻 Code1124Dev · 開発",
+
+        title1:
+          "アイデアを",
+
+        title2:
+          "コードに",
+
+        subtitle:
+          "Web制作 · 機能開発 · バグ修正 · 最適化<br>アイデアを形にするお手伝いをします。",
+
+        view:
+          "サービスを見る →",
+
+        ask:
+          "AIサポート",
+
+        services:
+          "できること",
+
+        desc:
+          "シンプルで効率的な開発",
+
+        webTitle:
+          "Web制作",
+
+        webText:
+          "個人サイト、ランディングページ、レスポンシブWebページなど。",
+
+        featureTitle:
+          "機能開発",
+
+        featureText:
+          "HTML、CSS、JavaScriptを使った機能開発。",
+
+        fixTitle:
+          "修正・改善",
+
+        fixText:
+          "バグ修正、レイアウト調整、コード改善など。",
+
+        placeholder:
+          "質問を入力...",
+
+        greeting:
+          "こんにちは 👋 Code AIです。料金、Web制作、バグ修正、納期などについて質問できます。",
+
+        quick:
+          [
+            "料金はいくら？",
+            "Webサイトを作れる？",
+            "どのくらいかかる？",
+            "開発者に連絡"
+          ]
+
+      },
+
+
+      ko: {
+
+        label: "한국어",
+        language: "언어",
+
+        badge:
+          "💻 Code1124Dev · 개발",
+
+        title1:
+          "아이디어를",
+
+        title2:
+          "코드로",
+
+        subtitle:
+          "웹 개발 · 기능 개발 · 버그 수정 · 최적화<br>아이디어를 실제 코드로 만들어드립니다.",
+
+        view:
+          "서비스 보기 →",
+
+        ask:
+          "AI 상담",
+
+        services:
+          "무엇을 만들 수 있나요?",
+
+        desc:
+          "간단하고 효율적인 개발",
+
+        webTitle:
+          "웹 개발",
+
+        webText:
+          "개인 웹사이트, 랜딩 페이지, 반응형 웹페이지 제작.",
+
+        featureTitle:
+          "기능 개발",
+
+        featureText:
+          "HTML, CSS, JavaScript 기반 기능 개발.",
+
+        fixTitle:
+          "수정 및 개선",
+
+        fixText:
+          "버그 수정, 레이아웃 개선, 코드 수정.",
+
+        placeholder:
+          "질문을 입력하세요...",
+
+        greeting:
+          "안녕하세요 👋 Code AI입니다. 가격, 웹 개발, 버그 수정, 개발 기간 등을 물어보세요.",
+
+        quick:
+          [
+            "가격은 얼마인가요?",
+            "웹사이트 제작 가능?",
+            "기간은 얼마나 걸리나요?",
+            "개발자에게 연락"
+          ]
+
+      },
+
+
+      es: {
+
+        label: "Español",
+        language: "Idioma",
+
+        badge:
+          "💻 Code1124Dev · Desarrollo",
+
+        title1:
+          "Convierte tus ideas",
+
+        title2:
+          "En código",
+
+        subtitle:
+          "Desarrollo web · Funciones · Corrección de errores · Optimización",
+
+        view:
+          "Ver servicios →",
+
+        ask:
+          "Soporte AI",
+
+        services:
+          "¿Qué puedo crear?",
+
+        desc:
+          "Desarrollo simple y eficiente",
+
+        webTitle:
+          "Desarrollo Web",
+
+        webText:
+          "Sitios personales, landing pages y páginas responsive.",
+
+        featureTitle:
+          "Desarrollo de funciones",
+
+        featureText:
+          "Funciones creadas con HTML, CSS y JavaScript.",
+
+        fixTitle:
+          "Correcciones",
+
+        fixText:
+          "Corrección de errores y mejoras de código.",
+
+        placeholder:
+          "Escribe tu pregunta...",
+
+        greeting:
+          "Hola 👋 Soy Code AI. Puedes preguntarme sobre precios, desarrollo web, errores y tiempos de entrega.",
+
+        quick:
+          [
+            "¿Cuánto cuesta?",
+            "¿Puedes crear una web?",
+            "¿Cuánto tarda?",
+            "Contactar"
+          ]
+
+      },
+
+
+      fr: {
+
+        label: "Français",
+        language: "Langue",
+
+        badge:
+          "💻 Code1124Dev · Développement",
+
+        title1:
+          "Transformez vos idées",
+
+        title2:
+          "En code",
+
+        subtitle:
+          "Développement Web · Fonctionnalités · Correction de bugs · Optimisation",
+
+        view:
+          "Voir les services →",
+
+        ask:
+          "Support IA",
+
+        services:
+          "Que puis-je créer ?",
+
+        desc:
+          "Développement simple et efficace",
+
+        webTitle:
+          "Développement Web",
+
+        webText:
+          "Sites personnels, landing pages et pages responsive.",
+
+        featureTitle:
+          "Fonctionnalités",
+
+        featureText:
+          "Fonctionnalités développées en HTML, CSS et JavaScript.",
+
+        fixTitle:
+          "Corrections",
+
+        fixText:
+          "Correction de bugs et amélioration du code.",
+
+        placeholder:
+          "Posez votre question...",
+
+        greeting:
+          "Bonjour 👋 Je suis Code AI. Vous pouvez me demander les tarifs, délais et services disponibles.",
+
+        quick:
+          [
+            "Combien ça coûte ?",
+            "Créer un site ?",
+            "Quel délai ?",
+            "Contacter"
+          ]
+
+      }
+
+    };
+
+
+
+    function setLanguage(lang) {
+
+      currentLanguage =
+        lang;
+
+      localStorage.setItem(
+        "language",
+        lang
+      );
+
+
+      const t =
+        translations[lang];
+
+
+      document
+        .documentElement
+        .lang =
+        lang;
+
+
+      document
+        .getElementById(
+          "languageTitle"
+        )
+        .textContent =
+        t.language;
+
+
+      document
+        .getElementById(
+          "languageLabel"
+        )
+        .textContent =
+        t.label;
+
+
+      document
+        .getElementById(
+          "badge"
+        )
+        .textContent =
+        t.badge;
+
+
+      document
+        .getElementById(
+          "title1"
+        )
+        .textContent =
+        t.title1;
+
+
+      document
+        .getElementById(
+          "title2"
+        )
+        .textContent =
+        t.title2;
+
+
+      document
+        .getElementById(
+          "subtitle"
+        )
+        .innerHTML =
+        t.subtitle;
+
+
+      document
+        .getElementById(
+          "viewServices"
+        )
+        .textContent =
+        t.view;
+
+
+      document
+        .getElementById(
+          "askAiButton"
+        )
+        .textContent =
+        t.ask;
+
+
+      document
+        .getElementById(
+          "servicesTitle"
+        )
+        .textContent =
+        t.services;
+
+
+      document
+        .getElementById(
+          "servicesDesc"
+        )
+        .textContent =
+        t.desc;
+
+
+      document
+        .getElementById(
+          "webTitle"
+        )
+        .textContent =
+        t.webTitle;
+
+
+      document
+        .getElementById(
+          "webText"
+        )
+        .textContent =
+        t.webText;
+
+
+      document
+        .getElementById(
+          "featureTitle"
+        )
+        .textContent =
+        t.featureTitle;
+
+
+      document
+        .getElementById(
+          "featureText"
+        )
+        .textContent =
+        t.featureText;
+
+
+      document
+        .getElementById(
+          "fixTitle"
+        )
+        .textContent =
+        t.fixTitle;
+
+
+      document
+        .getElementById(
+          "fixText"
+        )
+        .textContent =
+        t.fixText;
+
+
+      document
+        .getElementById(
+          "chatInput"
+        )
+        .placeholder =
+        t.placeholder;
+
+
+      document
+        .querySelectorAll(
+          ".language-option"
+        )
+        .forEach(
+          item =>
+            item.classList
+            .remove("active")
+        );
+
+
+      document
+        .getElementById(
+          "lang-" + lang
+        )
+        .classList
+        .add("active");
+
+
+      languageBox
+        .classList
+        .remove("open");
+
+
+      resetChat();
 
     }
 
 
-    function setLanguage(language) {
 
-      currentLanguage = language;
+    /* =========================
+       语言菜单
+    ========================= */
 
-
-      document
-        .querySelectorAll("[data-zh]")
-        .forEach(function(element) {
-
-          if (language === "zh") {
-
-            element.textContent =
-              element.getAttribute("data-zh");
-
-          } else {
-
-            element.textContent =
-              element.getAttribute("data-en");
-
-          }
-
-        });
+    const languageBox =
+      document.getElementById(
+        "languageBox"
+      );
 
 
-      if (language === "zh") {
+    document
+      .getElementById(
+        "languageButton"
+      )
+      .onclick =
+      function(event) {
 
-        languageLabel.textContent = "语言";
+        event.stopPropagation();
 
-        zhOption.classList.add("active");
-        enOption.classList.remove("active");
+        languageBox
+          .classList
+          .toggle("open");
 
-        document.documentElement.lang = "zh-CN";
+      };
 
-        document.title =
-          "代码开发服务｜网页制作・功能开发";
 
-      } else {
 
-        languageLabel.textContent = "Language";
+    /* =========================
+       AI 客服
+    ========================= */
 
-        enOption.classList.add("active");
-        zhOption.classList.remove("active");
+    const aiSupport =
+      document.getElementById(
+        "aiSupport"
+      );
 
-        document.documentElement.lang = "en";
 
-        document.title =
-          "Code Development | Web & Features";
+    const messages =
+      document.getElementById(
+        "chatMessages"
+      );
+
+
+    const input =
+      document.getElementById(
+        "chatInput"
+      );
+
+
+    function toggleChat() {
+
+      aiSupport
+        .classList
+        .toggle("open");
+
+    }
+
+
+    function openChat() {
+
+      aiSupport
+        .classList
+        .add("open");
+
+      setTimeout(
+        () => input.focus(),
+        200
+      );
+
+    }
+
+
+
+    function addMessage(
+      text,
+      type
+    ) {
+
+      const message =
+        document
+        .createElement("div");
+
+
+      message.className =
+        "message " + type;
+
+
+      message.innerHTML =
+        text;
+
+
+      messages
+        .appendChild(message);
+
+
+      messages.scrollTop =
+        messages.scrollHeight;
+
+    }
+
+
+
+    function resetChat() {
+
+      messages.innerHTML =
+        "";
+
+
+      const t =
+        translations[
+          currentLanguage
+        ];
+
+
+      addMessage(
+        t.greeting,
+        "bot"
+      );
+
+
+      renderQuickQuestions();
+
+    }
+
+
+
+    function renderQuickQuestions() {
+
+      const quickArea =
+        document
+        .getElementById(
+          "quickArea"
+        );
+
+
+      quickArea.innerHTML =
+        "";
+
+
+      translations[
+        currentLanguage
+      ]
+      .quick
+      .forEach(
+        question => {
+
+          const button =
+            document
+            .createElement(
+              "button"
+            );
+
+
+          button
+            .className =
+            "quick-question";
+
+
+          button
+            .textContent =
+            question;
+
+
+          button.onclick =
+            function() {
+
+              input.value =
+                question;
+
+              sendMessage();
+
+            };
+
+
+          quickArea
+            .appendChild(
+              button
+            );
+
+        }
+      );
+
+    }
+
+
+
+    /* =========================
+       智能回复逻辑
+    ========================= */
+
+    function smartReply(text) {
+
+      const q =
+        text
+        .toLowerCase()
+        .trim();
+
+
+
+      /* 价格 */
+      if (
+        q.includes("price")
+        ||
+        q.includes("cost")
+        ||
+        q.includes("多少钱")
+        ||
+        q.includes("价格")
+        ||
+        q.includes("收费")
+        ||
+        q.includes("料金")
+        ||
+        q.includes("얼마")
+        ||
+        q.includes("cuánto")
+        ||
+        q.includes("combien")
+      ) {
+
+        return localReply(
+          "pricing"
+        );
 
       }
 
 
-      languageBox.classList.remove("open");
+
+      /* 网站 */
+      if (
+        q.includes("website")
+        ||
+        q.includes("web")
+        ||
+        q.includes("网站")
+        ||
+        q.includes("网页")
+        ||
+        q.includes("サイト")
+        ||
+        q.includes("웹")
+      ) {
+
+        return localReply(
+          "website"
+        );
+
+      }
+
+
+
+      /* bug */
+      if (
+        q.includes("bug")
+        ||
+        q.includes("error")
+        ||
+        q.includes("报错")
+        ||
+        q.includes("错误")
+        ||
+        q.includes("修复")
+        ||
+        q.includes("エラー")
+        ||
+        q.includes("버그")
+      ) {
+
+        return localReply(
+          "bug"
+        );
+
+      }
+
+
+
+      /* 时间 */
+      if (
+        q.includes("time")
+        ||
+        q.includes("long")
+        ||
+        q.includes("多久")
+        ||
+        q.includes("几天")
+        ||
+        q.includes("时间")
+        ||
+        q.includes("納期")
+        ||
+        q.includes("기간")
+        ||
+        q.includes("tarda")
+        ||
+        q.includes("délai")
+      ) {
+
+        return localReply(
+          "time"
+        );
+
+      }
+
+
+
+      /* 联系 */
+      if (
+        q.includes("contact")
+        ||
+        q.includes("email")
+        ||
+        q.includes("联系")
+        ||
+        q.includes("邮箱")
+        ||
+        q.includes("連絡")
+        ||
+        q.includes("연락")
+        ||
+        q.includes("correo")
+      ) {
+
+        return localReply(
+          "contact"
+        );
+
+      }
+
+
+
+      /* Python */
+      if (
+        q.includes("python")
+        ||
+        q.includes("脚本")
+        ||
+        q.includes("script")
+      ) {
+
+        return localReply(
+          "python"
+        );
+
+      }
+
+
+
+      /* 默认 */
+      return localReply(
+        "unknown"
+      );
 
     }
 
 
-    /* 点击菜单外自动关闭 */
+
+    function localReply(type) {
+
+      const replies = {
+
+        en: {
+
+          pricing:
+            "Pricing depends on complexity. Small fixes can start around ¥20–50, simple web or script work around ¥50–150, while larger custom projects are quoted individually.",
+
+          website:
+            "Yes. I can help with personal websites, landing pages, portfolio pages, responsive layouts and simple interactive features. Send a description or reference image for a more accurate estimate.",
+
+          bug:
+            "Yes. Send the error message, screenshot and relevant code. I can first check the likely cause and tell you whether it can be fixed before you commit to anything.",
+
+          time:
+            "Simple fixes may be completed quickly, while larger work takes longer. The safest approach is to send the exact requirements first, then I can estimate the delivery time.",
+
+          contact:
+            "You can contact the developer at:<br><br>📩 2591705357@qq.com<br>✉️ Hujiajinbao20141124@gmail.com",
+
+          python:
+            "Python requests are possible for simple scripts, automation, data processing and small utilities. Send the exact requirement first so the scope can be checked.",
+
+          unknown:
+            "I can help answer questions about pricing, websites, Python, bug fixes, features and delivery time. If your request is more specific, describe what you want to build and I’ll point you in the right direction."
+        },
+
+
+        zh: {
+
+          pricing:
+            "价格主要看复杂度。简单修改大约可以从 ¥20～50 起，简单网页或脚本大约 ¥50～150，功能较多的项目会根据具体需求单独报价。建议先把需求发过来，再确认价格。",
+
+          website:
+            "可以。个人主页、展示页、落地页、响应式网页以及一些简单交互功能都可以先看需求。你可以提供参考图、功能说明或者想要的效果。",
+
+          bug:
+            "可以先检查。最好把报错信息、截图和相关代码一起发来，我可以先判断大概原因以及是否能修，再决定要不要继续。",
+
+          time:
+            "简单修改通常比较快，复杂项目需要更久。具体工期最好先看需求，我会根据功能数量和难度给一个更靠谱的时间。",
+
+          contact:
+            "可以通过下面两个邮箱联系：<br><br>📩 2591705357@qq.com<br>✉️ Hujiajinbao20141124@gmail.com",
+
+          python:
+            "可以做一些简单 Python 脚本，例如自动化、数据处理、小工具等。具体能不能做要先看需求，最好把输入、输出和功能说明清楚。",
+
+          unknown:
+            "你可以问我价格、网页制作、Python、BUG修复、功能开发和交付时间。如果是具体项目，直接描述“想做什么 + 有什么功能 + 有没有参考图”，我会更容易判断。"
+        }
+
+      };
+
+
+      if (
+        currentLanguage === "zh"
+      ) {
+
+        return replies
+          .zh[type];
+
+      }
+
+
+      /*
+        其他语言暂时使用英文智能回复，
+        页面本身仍保持对应语言。
+      */
+      return replies
+        .en[type];
+
+    }
+
+
+
+    function sendMessage() {
+
+      const text =
+        input
+        .value
+        .trim();
+
+
+      if (!text) {
+        return;
+      }
+
+
+      addMessage(
+        escapeHtml(text),
+        "user"
+      );
+
+
+      input.value =
+        "";
+
+
+      /*
+        模拟思考时间
+      */
+      setTimeout(
+        function() {
+
+          const reply =
+            smartReply(text);
+
+          addMessage(
+            reply,
+            "bot"
+          );
+
+        },
+        450
+      );
+
+    }
+
+
+
+    function escapeHtml(text) {
+
+      const div =
+        document
+        .createElement("div");
+
+      div.textContent =
+        text;
+
+      return div.innerHTML;
+
+    }
+
+
+
+    input.addEventListener(
+      "keydown",
+      function(event) {
+
+        if (
+          event.key === "Enter"
+        ) {
+
+          sendMessage();
+
+        }
+
+      }
+    );
+
+
+
     document.addEventListener(
       "click",
       function(event) {
 
         if (
-          !languageBox.contains(event.target)
+          !languageBox
+          .contains(event.target)
         ) {
 
           languageBox
@@ -796,7 +2723,17 @@
       }
     );
 
+
+
+    /* 页面启动 */
+
+    setLanguage(
+      currentLanguage
+    );
+
   </script>
 
+
 </body>
+
 </html>
