@@ -1,43 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
-
-  <title>Code1124Dev | Web Development</title>
+  <title>Code1124Dev | Web Development & Coding</title>
 
   <meta
     name="description"
-    content="Web development, feature development, bug fixes and coding services."
+    content="Web development, Python scripts, bug fixes and custom coding services."
   >
 
   <meta name="robots" content="index, follow">
-
-  <meta name="theme-color" content="#050712">
-
+  <meta name="theme-color" content="#070912">
 
   <style>
-
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
 
-
     html {
       scroll-behavior: smooth;
     }
 
-
     body {
       min-height: 100vh;
-
+      overflow-x: hidden;
       font-family:
         -apple-system,
         BlinkMacSystemFont,
@@ -45,2695 +35,2671 @@
         "Microsoft YaHei",
         Arial,
         sans-serif;
-
-      color: white;
+      color: #111827;
 
       background:
-        linear-gradient(
-          180deg,
-          #050712 0%,
-          #080b19 50%,
-          #04060d 100%
-        );
-
-      overflow-x: hidden;
+        radial-gradient(circle at 15% 15%, rgba(122,92,255,.14), transparent 30%),
+        radial-gradient(circle at 85% 20%, rgba(0,170,255,.10), transparent 28%),
+        linear-gradient(180deg, #ffffff 0%, #f6f7fb 55%, #ffffff 100%);
     }
 
-
-
-    /* =========================
-       背景
-    ========================= */
-
-    .background {
+    body::before {
+      content: "";
       position: fixed;
       inset: 0;
-      z-index: -5;
-      overflow: hidden;
       pointer-events: none;
-    }
-
-
-    .grid {
-      position: absolute;
-      inset: 0;
+      z-index: -1;
 
       background-image:
-        linear-gradient(
-          rgba(255,255,255,.025) 1px,
-          transparent 1px
-        ),
+        linear-gradient(rgba(50,50,80,.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(50,50,80,.035) 1px, transparent 1px);
 
-        linear-gradient(
-          90deg,
-          rgba(255,255,255,.025) 1px,
-          transparent 1px
-        );
-
-      background-size: 50px 50px;
-
-      mask-image:
-        linear-gradient(
-          to bottom,
-          black,
-          transparent 90%
-        );
+      background-size: 48px 48px;
     }
 
-
-    .glow {
-      position: absolute;
-
-      width: 550px;
-      height: 550px;
-
-      border-radius: 50%;
-
-      filter: blur(115px);
-
-      opacity: .3;
+    button,
+    input,
+    textarea {
+      font: inherit;
     }
 
-
-    .glow1 {
-      top: -180px;
-      left: -180px;
-
-      background: #6c4cff;
-
-      animation:
-        move1
-        14s ease-in-out
-        infinite alternate;
+    button {
+      cursor: pointer;
     }
 
-
-    .glow2 {
-      top: 15%;
-      right: -240px;
-
-      background: #008cff;
-
-      opacity: .22;
-
-      animation:
-        move2
-        17s ease-in-out
-        infinite alternate;
-    }
-
-
-    .glow3 {
-      bottom: -260px;
-      left: 35%;
-
-      background: #9d3cff;
-
-      opacity: .16;
-
-      animation:
-        move3
-        20s ease-in-out
-        infinite alternate;
-    }
-
-
-    @keyframes move1 {
-      to {
-        transform:
-          translate(120px, 100px)
-          scale(1.15);
-      }
-    }
-
-
-    @keyframes move2 {
-      to {
-        transform:
-          translate(-130px, 140px);
-      }
-    }
-
-
-    @keyframes move3 {
-      to {
-        transform:
-          translate(100px, -110px)
-          scale(1.2);
-      }
-    }
-
-
-
-    /* =========================
-       顶部导航
-    ========================= */
+    /* NAV */
 
     nav {
       position: fixed;
-
       top: 0;
       left: 0;
-
       width: 100%;
-      height: 70px;
+      height: 68px;
 
       display: flex;
       align-items: center;
       justify-content: space-between;
 
-      padding:
-        0 max(16px, 5vw);
+      padding: 0 max(14px, 5vw);
 
       z-index: 1000;
 
-      background:
-        rgba(5,7,18,.58);
+      background: rgba(255,255,255,.76);
+      backdrop-filter: blur(22px);
+      -webkit-backdrop-filter: blur(22px);
 
-      backdrop-filter:
-        blur(22px);
-
-      -webkit-backdrop-filter:
-        blur(22px);
-
-      border-bottom:
-        1px solid
-        rgba(255,255,255,.07);
+      border-bottom: 1px solid rgba(20,25,50,.08);
     }
-
 
     .logo {
       font-size: 19px;
-      font-weight: 700;
+      font-weight: 800;
+      letter-spacing: -.4px;
     }
-
 
     .logo span {
-      color: #8c7cff;
+      background: linear-gradient(90deg, #735cff, #277cff);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
     }
 
-
-
-    /* =========================
-       语言
-    ========================= */
-
-    .language-area {
+    .nav-right {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 12px;
     }
 
+    .status {
+      display: flex;
+      align-items: center;
+      gap: 7px;
 
-    .language-text {
-      color: #aeb5cc;
-      font-size: 14px;
+      padding: 8px 11px;
+
+      border: 1px solid rgba(34,197,94,.20);
+      border-radius: 999px;
+
+      background: rgba(34,197,94,.06);
+      color: #16823a;
+
+      font-size: 12px;
+      font-weight: 600;
     }
 
+    .status-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #22c55e;
+      box-shadow: 0 0 10px rgba(34,197,94,.65);
+    }
 
-    .language-box {
+    /* LANGUAGE */
+
+    .language-wrap {
       position: relative;
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
 
+    .language-word {
+      color: #737b91;
+      font-size: 13px;
+    }
 
     .language-button {
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 7px;
 
-      padding:
-        10px 14px;
+      padding: 9px 12px;
 
-      border:
-        1px solid
-        rgba(255,255,255,.13);
+      border: 1px solid rgba(30,40,70,.10);
+      border-radius: 12px;
 
-      border-radius: 13px;
+      background: rgba(255,255,255,.75);
+      color: #24283a;
 
-      background:
-        rgba(255,255,255,.06);
-
-      color: white;
-
-      cursor: pointer;
-
-      font-size: 14px;
+      box-shadow: 0 5px 18px rgba(30,40,80,.06);
     }
-
 
     .language-menu {
       position: absolute;
-
+      top: 48px;
       right: 0;
-      top: 50px;
 
       width: 200px;
 
       padding: 8px;
 
-      border-radius: 17px;
+      border: 1px solid rgba(30,40,70,.10);
+      border-radius: 16px;
 
-      border:
-        1px solid
-        rgba(255,255,255,.1);
+      background: rgba(255,255,255,.96);
+      backdrop-filter: blur(22px);
 
-      background:
-        rgba(10,13,28,.95);
-
-      backdrop-filter:
-        blur(28px);
-
-      box-shadow:
-        0 20px 70px
-        rgba(0,0,0,.45);
+      box-shadow: 0 20px 55px rgba(28,35,70,.16);
 
       opacity: 0;
-
-      transform:
-        translateY(-8px)
-        scale(.97);
-
+      transform: translateY(-7px) scale(.97);
       pointer-events: none;
 
-      transition: .2s;
+      transition: .18s;
     }
 
-
-    .language-box.open
-    .language-menu {
+    .language-wrap.open .language-menu {
       opacity: 1;
-
-      transform:
-        translateY(0)
-        scale(1);
-
+      transform: translateY(0) scale(1);
       pointer-events: auto;
     }
-
 
     .language-option {
       width: 100%;
 
-      padding:
-        12px 13px;
+      padding: 11px 12px;
 
       display: flex;
       align-items: center;
       gap: 10px;
 
-      border: 0;
-
-      border-radius: 11px;
+      border: none;
+      border-radius: 10px;
 
       background: transparent;
-
-      color: #e8eaf4;
-
-      font-size: 14px;
-
-      cursor: pointer;
+      color: #282d40;
 
       text-align: left;
     }
 
-
     .language-option:hover {
-      background:
-        rgba(255,255,255,.07);
+      background: #f3f4f8;
     }
-
 
     .language-option.active {
-      background:
-        rgba(110,92,255,.16);
-
-      color: #c2bbff;
+      color: #5f4ee8;
+      background: rgba(111,87,255,.09);
+      font-weight: 700;
     }
 
-
-
-    /* =========================
-       首页
-    ========================= */
+    /* HERO */
 
     .hero {
       min-height: 100vh;
 
       display: flex;
       flex-direction: column;
-
       justify-content: center;
       align-items: center;
 
       text-align: center;
 
-      padding:
-        120px 22px 70px;
+      padding: 115px 22px 70px;
     }
-
 
     .badge {
-      padding:
-        8px 16px;
+      padding: 8px 15px;
+      margin-bottom: 24px;
 
-      margin-bottom:
-        25px;
+      border: 1px solid rgba(95,80,210,.13);
+      border-radius: 999px;
 
-      border-radius:
-        999px;
+      background: rgba(255,255,255,.65);
+      color: #686f84;
 
-      border:
-        1px solid
-        rgba(255,255,255,.1);
+      font-size: 13px;
 
-      background:
-        rgba(255,255,255,.045);
-
-      color:
-        #c1c6dc;
-
-      font-size:
-        13px;
-
-      backdrop-filter:
-        blur(15px);
+      box-shadow: 0 8px 30px rgba(50,55,90,.06);
     }
-
 
     .hero h1 {
-      font-size:
-        clamp(
-          44px,
-          9vw,
-          82px
-        );
+      max-width: 900px;
 
-      line-height:
-        1.05;
+      margin-bottom: 24px;
 
-      letter-spacing:
-        -2px;
+      font-size: clamp(45px, 9vw, 82px);
+      line-height: 1.04;
+      letter-spacing: -3px;
 
-      margin-bottom:
-        26px;
+      color: #111525;
     }
-
 
     .gradient {
-      background:
-        linear-gradient(
-          90deg,
-          #a38cff,
-          #7268ff,
-          #55c8ff
-        );
-
-      -webkit-background-clip:
-        text;
-
-      background-clip:
-        text;
-
-      -webkit-text-fill-color:
-        transparent;
+      background: linear-gradient(90deg, #805dff, #5c65f4, #168ce7);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
     }
-
 
     .subtitle {
-      max-width:
-        700px;
+      max-width: 700px;
+      margin-bottom: 33px;
 
-      color:
-        #9fa8c3;
-
-      font-size:
-        18px;
-
-      line-height:
-        1.9;
-
-      margin-bottom:
-        35px;
+      color: #697188;
+      font-size: 18px;
+      line-height: 1.85;
     }
 
-
-    .buttons {
+    .hero-buttons {
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .btn {
+      min-width: 155px;
+
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+
+      padding: 14px 23px;
+
+      border-radius: 13px;
+      border: none;
+
+      text-decoration: none;
+      font-weight: 700;
+
+      transition: .2s;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      color: white;
+
+      background: linear-gradient(135deg, #755cff, #437bf2);
+
+      box-shadow: 0 12px 35px rgba(91,89,240,.24);
+    }
+
+    .btn-secondary {
+      color: #35394c;
+
+      border: 1px solid rgba(25,35,65,.11);
+      background: rgba(255,255,255,.68);
+    }
+
+    /* SECTIONS */
+
+    .section {
+      max-width: 1120px;
+      margin: auto;
+      padding: 85px 22px;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 11px;
+
+      color: #141827;
+      font-size: 34px;
+    }
+
+    .section-desc {
+      text-align: center;
+      margin-bottom: 40px;
+
+      color: #7d8497;
+      line-height: 1.7;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .card {
+      padding: 25px;
+
+      border-radius: 20px;
+
+      border: 1px solid rgba(35,45,80,.08);
+
+      background: rgba(255,255,255,.72);
+
+      box-shadow: 0 14px 40px rgba(40,45,85,.05);
+
+      transition: .22s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(111,87,255,.22);
+      box-shadow: 0 18px 48px rgba(70,70,120,.09);
+    }
+
+    .icon {
+      margin-bottom: 16px;
+      font-size: 31px;
+    }
+
+    .card h3 {
+      margin-bottom: 10px;
+      color: #1b2030;
+      font-size: 19px;
+    }
+
+    .card p {
+      color: #72798d;
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    /* PAYMENT */
+
+    .payment-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
       gap: 13px;
     }
 
+    .pay-step {
+      padding: 21px;
 
-    .button {
-      display:
-        inline-flex;
+      border: 1px solid rgba(35,45,80,.08);
+      border-radius: 18px;
 
-      align-items:
-        center;
-
-      justify-content:
-        center;
-
-      min-width:
-        155px;
-
-      padding:
-        15px 25px;
-
-      border-radius:
-        13px;
-
-      text-decoration:
-        none;
-
-      color:
-        white;
-
-      font-size:
-        15px;
-
-      font-weight:
-        600;
-
-      transition:
-        .25s;
+      background: rgba(255,255,255,.72);
     }
 
+    .pay-number {
+      width: 34px;
+      height: 34px;
 
-    .primary {
-      background:
-        linear-gradient(
-          135deg,
-          #6c59ff,
-          #566fff
-        );
+      margin-bottom: 13px;
 
-      box-shadow:
-        0 12px 40px
-        rgba(96,83,255,.3);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      border-radius: 11px;
+
+      color: white;
+      font-weight: 800;
+
+      background: linear-gradient(135deg, #745cff, #4380ef);
     }
 
-
-    .secondary {
-      background:
-        rgba(255,255,255,.045);
-
-      border:
-        1px solid
-        rgba(255,255,255,.12);
+    .pay-step h3 {
+      margin-bottom: 7px;
+      color: #202536;
+      font-size: 16px;
     }
 
-
-    .button:hover {
-      transform:
-        translateY(-3px);
+    .pay-step p {
+      color: #7a8194;
+      font-size: 13px;
+      line-height: 1.6;
     }
 
+    .deposit-note {
+      margin-top: 18px;
+      padding: 18px 20px;
 
+      border-radius: 15px;
 
-    /* =========================
-       服务
-    ========================= */
+      border: 1px solid rgba(111,87,255,.12);
 
-    .section {
-      max-width:
-        1100px;
+      background: rgba(111,87,255,.045);
 
-      margin:
-        auto;
+      color: #697085;
 
-      padding:
-        90px 22px;
+      line-height: 1.7;
+      font-size: 13px;
     }
 
+    /* CONTACT */
 
-    .section-title {
-      text-align:
-        center;
-
-      font-size:
-        34px;
-
-      margin-bottom:
-        12px;
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 13px;
     }
 
+    .contact-card {
+      min-height: 78px;
 
-    .section-desc {
-      text-align:
-        center;
+      padding: 16px 18px;
 
-      color:
-        #858fa9;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
 
-      margin-bottom:
-        42px;
+      border: 1px solid rgba(35,45,80,.08);
+      border-radius: 17px;
+
+      background: rgba(255,255,255,.76);
+
+      color: #24293a;
+
+      text-decoration: none;
+
+      box-shadow: 0 12px 35px rgba(30,40,80,.04);
+
+      transition: .2s;
     }
 
-
-    .cards {
-      display:
-        grid;
-
-      grid-template-columns:
-        repeat(3, 1fr);
-
-      gap:
-        18px;
+    .contact-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(111,87,255,.20);
     }
 
-
-    .card {
-      padding:
-        28px;
-
-      border-radius:
-        22px;
-
-      border:
-        1px solid
-        rgba(255,255,255,.075);
-
-      background:
-        linear-gradient(
-          145deg,
-          rgba(255,255,255,.055),
-          rgba(255,255,255,.025)
-        );
-
-      backdrop-filter:
-        blur(18px);
-
-      transition:
-        .25s;
+    .contact-left {
+      display: flex;
+      align-items: center;
+      gap: 13px;
     }
 
+    .contact-icon {
+      width: 42px;
+      height: 42px;
 
-    .card:hover {
-      transform:
-        translateY(-7px);
+      display: flex;
+      justify-content: center;
+      align-items: center;
 
-      border-color:
-        rgba(122,102,255,.4);
+      border-radius: 13px;
+
+      background: #f1f2f7;
+
+      font-size: 20px;
     }
 
-
-    .icon {
-      font-size:
-        34px;
-
-      margin-bottom:
-        20px;
+    .contact-name {
+      font-weight: 700;
+      margin-bottom: 3px;
     }
 
-
-    .card h3 {
-      margin-bottom:
-        12px;
+    .contact-value {
+      color: #858b9d;
+      font-size: 12px;
+      word-break: break-all;
     }
 
-
-    .card p {
-      color:
-        #969fb9;
-
-      line-height:
-        1.75;
-
-      font-size:
-        15px;
+    .arrow {
+      color: #a0a5b4;
+      font-size: 18px;
     }
 
+    /* PROJECT INQUIRY */
 
+    .inquiry-box {
+      padding: 27px;
 
-    /* =========================
-       客服按钮
-    ========================= */
+      border: 1px solid rgba(35,45,80,.08);
+      border-radius: 22px;
 
-    .ai-support {
-      position:
-        fixed;
-
-      right:
-        18px;
-
-      bottom:
-        18px;
-
-      z-index:
-        5000;
+      background: rgba(255,255,255,.72);
     }
 
-
-    .ai-button {
-      width:
-        60px;
-
-      height:
-        60px;
-
-      border:
-        none;
-
-      border-radius:
-        50%;
-
-      background:
-        linear-gradient(
-          135deg,
-          #735cff,
-          #477cff
-        );
-
-      box-shadow:
-        0 14px 45px
-        rgba(79,92,255,.45);
-
-      color:
-        white;
-
-      font-size:
-        25px;
-
-      cursor:
-        pointer;
-
-      transition:
-        .25s;
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 13px;
     }
 
-
-    .ai-button:hover {
-      transform:
-        scale(1.05)
-        translateY(-2px);
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
     }
 
-
-
-    /* =========================
-       客服窗口
-    ========================= */
-
-    .chat-window {
-      position:
-        absolute;
-
-      right:
-        0;
-
-      bottom:
-        75px;
-
-      width:
-        360px;
-
-      height:
-        520px;
-
-      display:
-        flex;
-
-      flex-direction:
-        column;
-
-      border-radius:
-        24px;
-
-      overflow:
-        hidden;
-
-      border:
-        1px solid
-        rgba(255,255,255,.1);
-
-      background:
-        rgba(8,11,24,.96);
-
-      backdrop-filter:
-        blur(28px);
-
-      box-shadow:
-        0 25px 80px
-        rgba(0,0,0,.55);
-
-      opacity:
-        0;
-
-      transform:
-        translateY(10px)
-        scale(.96);
-
-      pointer-events:
-        none;
-
-      transition:
-        .22s;
+    .field.full {
+      grid-column: 1 / -1;
     }
 
-
-    .ai-support.open
-    .chat-window {
-      opacity:
-        1;
-
-      transform:
-        translateY(0)
-        scale(1);
-
-      pointer-events:
-        auto;
+    .field label {
+      color: #656c80;
+      font-size: 13px;
+      font-weight: 600;
     }
 
+    .field input,
+    .field textarea {
+      width: 100%;
+      padding: 13px 14px;
+
+      border: 1px solid rgba(40,50,80,.10);
+      border-radius: 12px;
+
+      background: rgba(249,250,253,.95);
+      color: #222738;
+
+      outline: none;
+    }
+
+    .field input:focus,
+    .field textarea:focus {
+      border-color: rgba(111,87,255,.45);
+    }
+
+    .field textarea {
+      min-height: 110px;
+      resize: vertical;
+    }
+
+    .form-actions {
+      margin-top: 14px;
+
+      display: flex;
+      gap: 9px;
+      flex-wrap: wrap;
+    }
+
+    .small-btn {
+      padding: 10px 14px;
+
+      border: 1px solid rgba(35,45,80,.10);
+      border-radius: 10px;
+
+      background: #fff;
+      color: #33384b;
+
+      font-weight: 700;
+    }
+
+    .small-btn.primary {
+      border: none;
+      color: white;
+      background: linear-gradient(135deg, #735cff, #4779ee);
+    }
+
+    .privacy {
+      margin-top: 14px;
+      color: #8d93a4;
+      font-size: 12px;
+      line-height: 1.6;
+    }
+
+    /* AI SUPPORT */
+
+    .support {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      z-index: 5000;
+    }
+
+    .support-launch {
+      width: 60px;
+      height: 60px;
+
+      border: none;
+      border-radius: 50%;
+
+      color: white;
+      font-size: 24px;
+
+      background: linear-gradient(135deg, #755cff, #397ff1);
+
+      box-shadow: 0 15px 45px rgba(80,80,220,.32);
+    }
+
+    .chat {
+      position: absolute;
+      right: 0;
+      bottom: 74px;
+
+      width: 370px;
+      height: 550px;
+
+      display: flex;
+      flex-direction: column;
+
+      overflow: hidden;
+
+      border: 1px solid rgba(30,40,70,.09);
+      border-radius: 23px;
+
+      background: rgba(255,255,255,.97);
+
+      box-shadow: 0 30px 85px rgba(25,30,65,.20);
+
+      opacity: 0;
+      transform: translateY(8px) scale(.97);
+      pointer-events: none;
+
+      transition: .2s;
+    }
+
+    .support.open .chat {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      pointer-events: auto;
+    }
 
     .chat-header {
-      padding:
-        17px 18px;
+      padding: 15px 16px;
 
-      display:
-        flex;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
 
-      justify-content:
-        space-between;
-
-      align-items:
-        center;
-
-      border-bottom:
-        1px solid
-        rgba(255,255,255,.07);
+      border-bottom: 1px solid rgba(35,45,80,.08);
 
       background:
         linear-gradient(
           135deg,
-          rgba(108,89,255,.17),
-          rgba(55,120,255,.08)
+          rgba(113,87,255,.09),
+          rgba(30,130,240,.05)
         );
     }
-
 
     .agent {
-      display:
-        flex;
-
-      align-items:
-        center;
-
-      gap:
-        11px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
-
 
     .agent-avatar {
-      width:
-        39px;
+      width: 40px;
+      height: 40px;
 
-      height:
-        39px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
-      display:
-        flex;
+      border-radius: 13px;
 
-      align-items:
-        center;
-
-      justify-content:
-        center;
-
-      border-radius:
-        13px;
-
-      background:
-        linear-gradient(
-          135deg,
-          #715bff,
-          #4c7bff
-        );
+      color: white;
+      background: linear-gradient(135deg, #735cff, #4180f2);
     }
-
 
     .agent-name {
-      font-weight:
-        700;
-
-      font-size:
-        15px;
+      color: #202536;
+      font-weight: 800;
+      font-size: 14px;
     }
-
 
     .agent-status {
-      margin-top:
-        3px;
-
-      color:
-        #8fe6ad;
-
-      font-size:
-        11px;
+      margin-top: 2px;
+      color: #24914b;
+      font-size: 11px;
     }
-
 
     .close-chat {
-      border:
-        none;
-
-      background:
-        transparent;
-
-      color:
-        #aaaec0;
-
-      font-size:
-        22px;
-
-      cursor:
-        pointer;
+      border: none;
+      background: transparent;
+      color: #888fa1;
+      font-size: 22px;
     }
 
-
-
-    /* 消息 */
     .chat-messages {
-      flex:
-        1;
+      flex: 1;
+      overflow-y: auto;
 
-      overflow-y:
-        auto;
+      padding: 15px;
 
-      padding:
-        16px;
-
-      display:
-        flex;
-
-      flex-direction:
-        column;
-
-      gap:
-        12px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
     }
-
 
     .message {
-      max-width:
-        85%;
+      max-width: 87%;
 
-      padding:
-        11px 13px;
+      padding: 10px 12px;
 
-      border-radius:
-        15px;
+      border-radius: 14px;
 
-      font-size:
-        14px;
-
-      line-height:
-        1.55;
+      font-size: 13px;
+      line-height: 1.6;
     }
-
 
     .bot {
-      align-self:
-        flex-start;
+      align-self: flex-start;
 
-      background:
-        rgba(255,255,255,.07);
+      background: #f2f3f7;
+      color: #3a3f52;
 
-      border:
-        1px solid
-        rgba(255,255,255,.07);
-
-      color:
-        #e4e6ee;
-
-      border-bottom-left-radius:
-        5px;
+      border-bottom-left-radius: 5px;
     }
-
 
     .user {
-      align-self:
-        flex-end;
+      align-self: flex-end;
 
-      background:
-        linear-gradient(
-          135deg,
-          #705cff,
-          #4f78ff
-        );
+      color: white;
 
-      color:
-        white;
+      background: linear-gradient(135deg, #735cff, #477cf2);
 
-      border-bottom-right-radius:
-        5px;
+      border-bottom-right-radius: 5px;
     }
 
-
-
-    /* 推荐问题 */
     .quick-area {
-      padding:
-        0 14px 10px;
+      padding: 0 12px 9px;
 
-      display:
-        flex;
-
-      flex-wrap:
-        wrap;
-
-      gap:
-        7px;
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
     }
 
+    .quick-btn {
+      padding: 6px 9px;
 
-    .quick-question {
-      border:
-        1px solid
-        rgba(255,255,255,.1);
+      border: 1px solid rgba(40,50,80,.09);
+      border-radius: 999px;
 
-      background:
-        rgba(255,255,255,.045);
+      background: #f6f7fa;
+      color: #60677a;
 
-      color:
-        #bbc1d4;
-
-      padding:
-        7px 10px;
-
-      border-radius:
-        999px;
-
-      font-size:
-        11px;
-
-      cursor:
-        pointer;
+      font-size: 10px;
     }
 
-
-    .quick-question:hover {
-      background:
-        rgba(255,255,255,.09);
-
-      color:
-        white;
-    }
-
-
-
-    /* 输入框 */
     .chat-input-area {
-      padding:
-        12px;
+      padding: 11px;
 
-      border-top:
-        1px solid
-        rgba(255,255,255,.07);
+      display: flex;
+      gap: 7px;
 
-      display:
-        flex;
-
-      gap:
-        8px;
+      border-top: 1px solid rgba(35,45,80,.08);
     }
-
 
     .chat-input {
-      flex:
-        1;
+      flex: 1;
 
-      border:
-        1px solid
-        rgba(255,255,255,.09);
+      padding: 11px 12px;
 
-      background:
-        rgba(255,255,255,.05);
+      border: 1px solid rgba(35,45,80,.10);
+      border-radius: 12px;
 
-      color:
-        white;
+      background: #f8f9fb;
+      color: #292e40;
 
-      border-radius:
-        13px;
-
-      padding:
-        12px 13px;
-
-      outline:
-        none;
-
-      font-size:
-        14px;
+      outline: none;
     }
 
+    .send {
+      width: 42px;
 
-    .chat-input:focus {
-      border-color:
-        rgba(110,92,255,.6);
+      border: none;
+      border-radius: 12px;
+
+      color: white;
+
+      background: linear-gradient(135deg, #735cff, #407ef1);
     }
 
+    .toast {
+      position: fixed;
+      left: 50%;
+      bottom: 25px;
 
-    .send-button {
-      width:
-        43px;
+      transform: translateX(-50%) translateY(20px);
 
-      border:
-        none;
+      padding: 10px 15px;
 
-      border-radius:
-        13px;
+      border-radius: 11px;
 
-      background:
-        linear-gradient(
-          135deg,
-          #705cff,
-          #4f7aff
-        );
+      background: rgba(20,23,35,.9);
+      color: white;
 
-      color:
-        white;
+      font-size: 13px;
 
-      font-size:
-        17px;
+      opacity: 0;
+      pointer-events: none;
 
-      cursor:
-        pointer;
+      transition: .2s;
+
+      z-index: 9999;
     }
 
+    .toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
 
+    footer {
+      padding: 35px 20px 45px;
 
-    /* =========================
-       手机
-    ========================= */
+      text-align: center;
 
-    @media
-    (max-width: 750px) {
+      color: #9298a8;
+      font-size: 12px;
+    }
 
-      nav {
-        height:
-          64px;
-
-        padding:
-          0 12px;
+    @media (max-width: 850px) {
+      .cards {
+        grid-template-columns: 1fr 1fr;
       }
 
+      .payment-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 650px) {
+      nav {
+        height: 62px;
+        padding: 0 11px;
+      }
 
       .logo {
-        font-size:
-          15px;
+        font-size: 15px;
       }
 
-
-      .language-text {
-        display:
-          none;
+      .status {
+        display: none;
       }
 
+      .language-word {
+        display: none;
+      }
 
       .language-button {
-        padding:
-          9px 11px;
+        padding: 8px 10px;
+        font-size: 12px;
       }
 
-
-      .cards {
-        grid-template-columns:
-          1fr;
+      .hero {
+        padding: 105px 19px 65px;
       }
-
 
       .hero h1 {
-        font-size:
-          47px;
+        font-size: 47px;
+        letter-spacing: -2px;
       }
-
 
       .subtitle {
-        font-size:
-          16px;
+        font-size: 16px;
       }
 
+      .cards,
+      .payment-grid,
+      .contact-grid,
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .field.full {
+        grid-column: auto;
+      }
 
       .section {
-        padding:
-          70px 20px;
+        padding: 65px 18px;
       }
 
+      .chat {
+        position: fixed;
 
-      .ai-support {
-        right:
-          12px;
+        left: 9px;
+        right: 9px;
+        bottom: 79px;
 
-        bottom:
-          12px;
+        width: auto;
+        height: min(600px, 76vh);
       }
 
-
-      .chat-window {
-        position:
-          fixed;
-
-        left:
-          10px;
-
-        right:
-          10px;
-
-        bottom:
-          82px;
-
-        width:
-          auto;
-
-        height:
-          min(570px, 72vh);
+      .support {
+        right: 11px;
+        bottom: 11px;
       }
-
     }
-
   </style>
-
 </head>
-
 
 <body>
 
-
-  <!-- 背景 -->
-  <div class="background">
-
-    <div class="grid"></div>
-
-    <div class="glow glow1"></div>
-
-    <div class="glow glow2"></div>
-
-    <div class="glow glow3"></div>
-
+<nav>
+  <div class="logo">
+    &lt;<span>Code1124Dev</span>/&gt;
   </div>
 
+  <div class="nav-right">
 
-
-  <!-- 顶部 -->
-  <nav>
-
-    <div class="logo">
-      &lt;<span>Code1124</span>/&gt;
+    <div class="status">
+      <span class="status-dot"></span>
+      <span id="statusText">Accepting Projects</span>
     </div>
 
+    <div class="language-wrap" id="languageWrap">
 
-    <div class="language-area">
-
-      <span
-        class="language-text"
-        id="languageTitle"
-      >
+      <span class="language-word" id="languageWord">
         Language
       </span>
 
-
-      <div
-        class="language-box"
-        id="languageBox"
+      <button
+        class="language-button"
+        id="languageButton"
+        type="button"
       >
+        🌐
+        <span id="languageLabel">English</span>
+        ▾
+      </button>
 
-        <button
-          class="language-button"
-          id="languageButton"
-        >
+      <div class="language-menu">
 
-          🌐
-
-          <span id="languageLabel">
-            English
-          </span>
-
-          ▾
-
+        <button class="language-option" id="lang-en" onclick="setLanguage('en')">
+          🇺🇸 English
         </button>
 
+        <button class="language-option" id="lang-zh" onclick="setLanguage('zh')">
+          🇨🇳 中文
+        </button>
 
-        <div class="language-menu">
+        <button class="language-option" id="lang-ja" onclick="setLanguage('ja')">
+          🇯🇵 日本語
+        </button>
 
-          <button
-            class="language-option active"
-            onclick="setLanguage('en')"
-            id="lang-en"
-          >
-            🇺🇸 English
-          </button>
+        <button class="language-option" id="lang-ko" onclick="setLanguage('ko')">
+          🇰🇷 한국어
+        </button>
 
+        <button class="language-option" id="lang-es" onclick="setLanguage('es')">
+          🇪🇸 Español
+        </button>
 
-          <button
-            class="language-option"
-            onclick="setLanguage('zh')"
-            id="lang-zh"
-          >
-            🇨🇳 中文
-          </button>
+        <button class="language-option" id="lang-fr" onclick="setLanguage('fr')">
+          🇫🇷 Français
+        </button>
 
-
-          <button
-            class="language-option"
-            onclick="setLanguage('ja')"
-            id="lang-ja"
-          >
-            🇯🇵 日本語
-          </button>
+      </div>
+    </div>
+  </div>
+</nav>
 
 
-          <button
-            class="language-option"
-            onclick="setLanguage('ko')"
-            id="lang-ko"
-          >
-            🇰🇷 한국어
-          </button>
+<section class="hero">
+
+  <div class="badge" id="badge">
+    💻 Code1124Dev · Development
+  </div>
+
+  <h1>
+    <span id="heroOne">Turn Your Ideas</span>
+    <br>
+    <span class="gradient" id="heroTwo">Into Code</span>
+  </h1>
+
+  <p class="subtitle" id="heroSubtitle">
+    Web Development · Python · Bug Fixes · Custom Code
+    <br>
+    Tell us what you want to build and we'll help you find a solution.
+  </p>
+
+  <div class="hero-buttons">
+
+    <a href="#services" class="btn btn-primary" id="servicesBtn">
+      View Services →
+    </a>
+
+    <button
+      class="btn btn-secondary"
+      id="supportBtn"
+      onclick="openChat()"
+    >
+      Ask Support
+    </button>
+
+  </div>
+</section>
 
 
-          <button
-            class="language-option"
-            onclick="setLanguage('es')"
-            id="lang-es"
-          >
-            🇪🇸 Español
-          </button>
+<section class="section" id="services">
+
+  <h2 class="section-title" id="servicesTitle">
+    What We Can Do
+  </h2>
+
+  <p class="section-desc" id="servicesDesc">
+    Simple development services for small projects and custom requirements.
+  </p>
+
+  <div class="cards">
+
+    <div class="card">
+      <div class="icon">🌐</div>
+      <h3 id="webTitle">Web Development</h3>
+      <p id="webText">
+        Personal websites, landing pages, portfolio pages and responsive web interfaces.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="icon">🐍</div>
+      <h3 id="pythonTitle">Python Scripts</h3>
+      <p id="pythonText">
+        Simple automation, data processing, utilities and custom Python scripts.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="icon">🛠️</div>
+      <h3 id="bugTitle">Bug Fixes</h3>
+      <p id="bugText">
+        Error diagnosis, code fixes, layout problems and small functionality improvements.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="icon">⚡</div>
+      <h3 id="customTitle">Custom Code</h3>
+      <p id="customText">
+        Have a small idea or custom feature? Send the requirements and we'll review it.
+      </p>
+    </div>
+
+  </div>
+</section>
 
 
-          <button
-            class="language-option"
-            onclick="setLanguage('fr')"
-            id="lang-fr"
-          >
-            🇫🇷 Français
-          </button>
+<section class="section">
 
-        </div>
+  <h2 class="section-title" id="paymentTitle">
+    Payment Process
+  </h2>
 
+  <p class="section-desc" id="paymentDesc">
+    A clear staged payment process for custom projects.
+  </p>
+
+  <div class="payment-grid">
+
+    <div class="pay-step">
+      <div class="pay-number">1</div>
+      <h3 id="pay1Title">Confirm Requirements</h3>
+      <p id="pay1Text">
+        Confirm the scope, price and estimated delivery time.
+      </p>
+    </div>
+
+    <div class="pay-step">
+      <div class="pay-number">2</div>
+      <h3 id="pay2Title">30% Deposit</h3>
+      <p id="pay2Text">
+        Development starts after the deposit is confirmed.
+      </p>
+    </div>
+
+    <div class="pay-step">
+      <div class="pay-number">3</div>
+      <h3 id="pay3Title">Preview</h3>
+      <p id="pay3Text">
+        Review the completed preview before final delivery.
+      </p>
+    </div>
+
+    <div class="pay-step">
+      <div class="pay-number">4</div>
+      <h3 id="pay4Title">Final 70%</h3>
+      <p id="pay4Text">
+        The final files are delivered after the remaining payment.
+      </p>
+    </div>
+
+  </div>
+
+  <div class="deposit-note" id="depositNote">
+    Custom projects normally require a 30% deposit.
+    Once development has started, the deposit is generally non-refundable because work time has already been reserved.
+    If we cannot complete the confirmed requirements, the corresponding payment will be refunded.
+  </div>
+
+</section>
+
+
+<section class="section">
+
+  <h2 class="section-title" id="inquiryTitle">
+    Project Inquiry
+  </h2>
+
+  <p class="section-desc" id="inquiryDesc">
+    Organize your requirements before contacting us.
+  </p>
+
+  <div class="inquiry-box">
+
+    <div class="form-grid">
+
+      <div class="field">
+        <label id="projectLabel">Project Type</label>
+        <input
+          id="projectType"
+          placeholder="Website / Python / Bug Fix..."
+        >
+      </div>
+
+      <div class="field">
+        <label id="budgetLabel">Budget</label>
+        <input
+          id="budget"
+          placeholder="Example: ¥100"
+        >
+      </div>
+
+      <div class="field">
+        <label id="deadlineLabel">Deadline</label>
+        <input
+          id="deadline"
+          placeholder="Example: 3 days"
+        >
+      </div>
+
+      <div class="field">
+        <label id="referenceLabel">Reference</label>
+        <input
+          id="reference"
+          placeholder="Image / Website / Description"
+        >
+      </div>
+
+      <div class="field full">
+        <label id="requirementsLabel">Requirements</label>
+
+        <textarea
+          id="requirements"
+          placeholder="Describe what you want to build..."
+        ></textarea>
       </div>
 
     </div>
 
-  </nav>
-
-
-
-  <!-- 首页 -->
-  <section class="hero">
-
-    <div
-      class="badge"
-      id="badge"
-    >
-      💻 Code1124Dev · Development
-    </div>
-
-
-    <h1>
-
-      <span id="title1">
-        Turn Your Ideas
-      </span>
-
-      <br>
-
-      <span
-        class="gradient"
-        id="title2"
-      >
-        Into Code
-      </span>
-
-    </h1>
-
-
-    <p
-      class="subtitle"
-      id="subtitle"
-    >
-      Web Development · Features · Bug Fixes · Optimization
-      <br>
-      Have an idea? I can help turn it into code.
-    </p>
-
-
-    <div class="buttons">
-
-      <a
-        href="#services"
-        class="button primary"
-        id="viewServices"
-      >
-        View Services →
-      </a>
-
+    <div class="form-actions">
 
       <button
-        class="button secondary"
-        id="askAiButton"
-        onclick="openChat()"
-        style="cursor:pointer"
+        class="small-btn primary"
+        id="generateBtn"
+        onclick="generateInquiry()"
       >
-        Ask AI Support
+        Generate Inquiry
+      </button>
+
+      <button
+        class="small-btn"
+        id="copyInquiryBtn"
+        onclick="copyInquiry()"
+      >
+        Copy
       </button>
 
     </div>
 
-  </section>
-
-
-
-  <!-- 服务 -->
-  <section
-    class="section"
-    id="services"
-  >
-
-    <h2
-      class="section-title"
-      id="servicesTitle"
-    >
-      What Can I Build?
-    </h2>
-
-
-    <p
-      class="section-desc"
-      id="servicesDesc"
-    >
-      Simple and efficient development
-      for your ideas
+    <p class="privacy" id="privacyText">
+      Privacy: never send passwords, verification codes, bank card details or other sensitive account information.
     </p>
 
+  </div>
+</section>
 
-    <div class="cards">
+
+<section class="section" id="contact">
+
+  <h2 class="section-title" id="contactTitle">
+    Contact
+  </h2>
+
+  <p class="section-desc" id="contactDesc">
+    Choose the platform you prefer.
+  </p>
+
+  <div class="contact-grid">
+
+    <a
+      class="contact-card"
+      href="https://wa.me/818069220806"
+      target="_blank"
+    >
+      <div class="contact-left">
+        <div class="contact-icon">💬</div>
+
+        <div>
+          <div class="contact-name">WhatsApp</div>
+          <div class="contact-value" id="whatsappText">
+            Chat directly
+          </div>
+        </div>
+      </div>
+
+      <div class="arrow">›</div>
+    </a>
 
 
-      <div class="card">
+    <a
+      class="contact-card"
+      href="https://instagram.com/code1124dev"
+      target="_blank"
+    >
+      <div class="contact-left">
+        <div class="contact-icon">📸</div>
 
-        <div class="icon">
-          🌐
+        <div>
+          <div class="contact-name">Instagram</div>
+          <div class="contact-value">
+            @code1124dev
+          </div>
+        </div>
+      </div>
+
+      <div class="arrow">›</div>
+    </a>
+
+
+    <a
+      class="contact-card"
+      href="https://line.me/ti/p/~code1124dev"
+      target="_blank"
+    >
+      <div class="contact-left">
+        <div class="contact-icon">💚</div>
+
+        <div>
+          <div class="contact-name">LINE</div>
+          <div class="contact-value">
+            code1124dev
+          </div>
+        </div>
+      </div>
+
+      <div class="arrow">›</div>
+    </a>
+
+
+    <a
+      class="contact-card"
+      href="mailto:Hujiajinbao20141124@gmail.com"
+    >
+      <div class="contact-left">
+        <div class="contact-icon">✉️</div>
+
+        <div>
+          <div class="contact-name">Email</div>
+          <div class="contact-value">
+            Hujiajinbao20141124@gmail.com
+          </div>
+        </div>
+      </div>
+
+      <div class="arrow">›</div>
+    </a>
+
+
+    <a
+      class="contact-card"
+      href="mailto:2591705357@qq.com"
+    >
+      <div class="contact-left">
+        <div class="contact-icon">📩</div>
+
+        <div>
+          <div class="contact-name">QQ Mail</div>
+          <div class="contact-value">
+            2591705357@qq.com
+          </div>
+        </div>
+      </div>
+
+      <div class="arrow">›</div>
+    </a>
+
+
+    <a
+      class="contact-card"
+      href="https://code1124dev.github.io"
+      target="_blank"
+    >
+      <div class="contact-left">
+        <div class="contact-icon">🌐</div>
+
+        <div>
+          <div class="contact-name">Website</div>
+          <div class="contact-value">
+            Code1124Dev
+          </div>
+        </div>
+      </div>
+
+      <div class="arrow">›</div>
+    </a>
+
+  </div>
+</section>
+
+
+<div class="support" id="support">
+
+  <button
+    class="support-launch"
+    onclick="toggleChat()"
+    aria-label="Support"
+  >
+    ✦
+  </button>
+
+  <div class="chat">
+
+    <div class="chat-header">
+
+      <div class="agent">
+
+        <div class="agent-avatar">
+          ✦
         </div>
 
-        <h3 id="webTitle">
-          Web Development
-        </h3>
+        <div>
+          <div class="agent-name">
+            Code AI Support
+          </div>
 
-        <p id="webText">
-
-          Personal websites,
-          landing pages,
-          responsive pages
-          and simple web projects.
-
-        </p>
+          <div class="agent-status" id="agentStatus">
+            ● Online
+          </div>
+        </div>
 
       </div>
 
-
-
-      <div class="card">
-
-        <div class="icon">
-          ⚡
-        </div>
-
-        <h3 id="featureTitle">
-          Feature Development
-        </h3>
-
-        <p id="featureText">
-
-          HTML, CSS and JavaScript
-          functionality built around
-          your requirements.
-
-        </p>
-
-      </div>
-
-
-
-      <div class="card">
-
-        <div class="icon">
-          🛠️
-        </div>
-
-        <h3 id="fixTitle">
-          Fixes & Improvements
-        </h3>
-
-        <p id="fixText">
-
-          Bug fixes,
-          layout improvements,
-          code changes
-          and optimization.
-
-        </p>
-
-      </div>
-
+      <button class="close-chat" onclick="toggleChat()">
+        ×
+      </button>
 
     </div>
 
-  </section>
+    <div
+      class="chat-messages"
+      id="chatMessages"
+    ></div>
 
+    <div
+      class="quick-area"
+      id="quickArea"
+    ></div>
 
+    <div class="chat-input-area">
 
-  <!-- AI 客服 -->
-  <div
-    class="ai-support"
-    id="aiSupport"
-  >
-
-
-    <button
-      class="ai-button"
-      onclick="toggleChat()"
-    >
-      ✦
-    </button>
-
-
-    <div class="chat-window">
-
-
-      <div class="chat-header">
-
-        <div class="agent">
-
-          <div class="agent-avatar">
-            ✦
-          </div>
-
-
-          <div>
-
-            <div
-              class="agent-name"
-              id="agentName"
-            >
-              Code AI
-            </div>
-
-            <div
-              class="agent-status"
-              id="agentStatus"
-            >
-              ● Online
-            </div>
-
-          </div>
-
-        </div>
-
-
-        <button
-          class="close-chat"
-          onclick="toggleChat()"
-        >
-          ×
-        </button>
-
-      </div>
-
-
-
-      <div
-        class="chat-messages"
-        id="chatMessages"
+      <input
+        class="chat-input"
+        id="chatInput"
+        placeholder="Ask a question..."
+        autocomplete="off"
       >
-      </div>
 
-
-
-      <div
-        class="quick-area"
-        id="quickArea"
+      <button
+        class="send"
+        onclick="sendMessage()"
       >
-      </div>
-
-
-
-      <div class="chat-input-area">
-
-        <input
-          class="chat-input"
-          id="chatInput"
-          placeholder="Ask me something..."
-          autocomplete="off"
-        >
-
-        <button
-          class="send-button"
-          onclick="sendMessage()"
-        >
-          ➤
-        </button>
-
-      </div>
-
+        ➤
+      </button>
 
     </div>
 
   </div>
+</div>
 
 
+<div class="toast" id="toast">
+  Copied
+</div>
 
-  <script>
 
-    /* =========================
-       多语言
-    ========================= */
+<footer>
+  © 2026 Code1124Dev · Build · Solve · Create
+</footer>
 
-    let currentLanguage =
-      localStorage.getItem(
-        "language"
-      )
-      || "en";
 
+<script>
+  const EMAIL =
+    "Hujiajinbao20141124@gmail.com";
 
-    const translations = {
+  const QQ_EMAIL =
+    "2591705357@qq.com";
 
-      en: {
 
-        label: "English",
+  let currentLanguage =
+    localStorage.getItem("code1124_language")
+    || "en";
 
-        language: "Language",
 
-        badge:
-          "💻 Code1124Dev · Development",
+  const t = {
 
-        title1:
-          "Turn Your Ideas",
+    en: {
+      label: "English",
+      language: "Language",
+      status: "Accepting Projects",
 
-        title2:
-          "Into Code",
+      badge: "💻 Code1124Dev · Development",
 
-        subtitle:
-          "Web Development · Features · Bug Fixes · Optimization<br>Have an idea? I can help turn it into code.",
+      hero1: "Turn Your Ideas",
+      hero2: "Into Code",
 
-        view:
-          "View Services →",
+      subtitle:
+        "Web Development · Python · Bug Fixes · Custom Code<br>Tell us what you want to build and we'll help you find a solution.",
 
-        ask:
-          "Ask AI Support",
+      servicesBtn: "View Services →",
+      supportBtn: "Ask Support",
 
-        services:
-          "What Can I Build?",
+      servicesTitle: "What We Can Do",
+      servicesDesc:
+        "Simple development services for small projects and custom requirements.",
 
-        desc:
-          "Simple and efficient development for your ideas",
+      webTitle: "Web Development",
+      webText:
+        "Personal websites, landing pages, portfolio pages and responsive web interfaces.",
 
-        webTitle:
-          "Web Development",
+      pythonTitle: "Python Scripts",
+      pythonText:
+        "Simple automation, data processing, utilities and custom Python scripts.",
 
-        webText:
-          "Personal websites, landing pages, responsive pages and simple web projects.",
+      bugTitle: "Bug Fixes",
+      bugText:
+        "Error diagnosis, code fixes, layout problems and small functionality improvements.",
 
-        featureTitle:
-          "Feature Development",
+      customTitle: "Custom Code",
+      customText:
+        "Have a small idea or custom feature? Send the requirements and we'll review it.",
 
-        featureText:
-          "HTML, CSS and JavaScript functionality built around your requirements.",
+      paymentTitle: "Payment Process",
+      paymentDesc:
+        "A clear staged payment process for custom projects.",
 
-        fixTitle:
-          "Fixes & Improvements",
+      pay1Title: "Confirm Requirements",
+      pay1Text:
+        "Confirm the scope, price and estimated delivery time.",
 
-        fixText:
-          "Bug fixes, layout improvements, code changes and optimization.",
+      pay2Title: "30% Deposit",
+      pay2Text:
+        "Development starts after the deposit is confirmed.",
 
-        placeholder:
-          "Ask me something...",
+      pay3Title: "Preview",
+      pay3Text:
+        "Review the completed preview before final delivery.",
 
-        greeting:
-          "Hi 👋 I'm Code AI. I can help with pricing, web development, bug fixes, project timelines and contact information.",
+      pay4Title: "Final 70%",
+      pay4Text:
+        "The final files are delivered after the remaining payment.",
 
-        quick:
-          [
-            "How much does it cost?",
-            "Can you build a website?",
-            "How long does it take?",
-            "Contact developer"
-          ]
+      deposit:
+        "Custom projects normally require a 30% deposit. Once development has started, the deposit is generally non-refundable because work time has already been reserved. If we cannot complete the confirmed requirements, the corresponding payment will be refunded.",
 
-      },
+      inquiryTitle: "Project Inquiry",
+      inquiryDesc:
+        "Organize your requirements before contacting us.",
 
+      project: "Project Type",
+      budget: "Budget",
+      deadline: "Deadline",
+      reference: "Reference",
+      requirements: "Requirements",
 
-      zh: {
+      generate: "Generate Inquiry",
+      copy: "Copy",
 
-        label: "中文",
+      privacy:
+        "Privacy: never send passwords, verification codes, bank card details or other sensitive account information.",
 
-        language: "语言",
+      contactTitle: "Contact",
+      contactDesc:
+        "Choose the platform you prefer.",
 
-        badge:
-          "💻 Code1124Dev · 代码开发",
+      whatsapp: "Chat directly",
 
-        title1:
-          "把你的想法",
+      online: "● Online",
+      placeholder: "Ask a question...",
 
-        title2:
-          "变成代码",
+      greeting:
+        "Hi 👋 I'm Code AI Support. I can help with pricing, the 30% deposit, websites, Python, bug fixes, delivery time, refunds and contact information.",
 
-        subtitle:
-          "网页制作 · 功能开发 · BUG 修复 · 页面优化<br>有想法但不知道怎么实现？我可以帮你处理。",
+      quick: [
+        "How much does it cost?",
+        "Why 30% deposit?",
+        "Can you fix bugs?",
+        "How long does it take?"
+      ],
 
-        view:
-          "查看服务 →",
+      replies: {
+        price:
+          "Pricing depends on complexity. Small fixes may start around ¥20–50, simple websites or scripts around ¥50–150, while larger custom projects are quoted individually.",
 
-        ask:
-          "咨询 AI 客服",
+        deposit:
+          "Custom development normally uses a 30% deposit and 70% final payment. The deposit confirms the project and reserves development time.",
 
-        services:
-          "可以做什么？",
+        refund:
+          "Once work has started, the deposit is generally non-refundable because development time has already been reserved. If we cannot complete the confirmed requirements, the corresponding payment will be refunded.",
 
-        desc:
-          "简单、快速地帮你实现代码需求",
+        website:
+          "Yes. We can discuss personal websites, landing pages, portfolio pages, responsive layouts and simple interactive features.",
 
-        webTitle:
-          "网页制作",
+        python:
+          "Simple Python scripts, automation, data processing and small utilities can be reviewed. Please describe the exact input, output and required behavior.",
 
-        webText:
-          "个人主页、展示页、响应式网页和简单网站项目。",
+        bug:
+          "Yes. Please provide the exact error message, screenshot and relevant code. We can review the problem before confirming the price.",
 
-        featureTitle:
-          "功能开发",
+        time:
+          "Delivery time depends on complexity. Send the complete requirements first so we can give a realistic estimate.",
 
-        featureText:
-          "根据需求使用 HTML、CSS、JavaScript 开发网页功能。",
+        contact:
+          `You can contact us through WhatsApp, Instagram, LINE or email.<br><br>✉️ ${EMAIL}`,
 
-        fixTitle:
-          "修改与修复",
-
-        fixText:
-          "BUG 修复、页面调整、代码修改和体验优化。",
-
-        placeholder:
-          "输入你的问题...",
-
-        greeting:
-          "你好 👋 我是 Code AI。你可以问我价格、网页制作、BUG 修改、开发时间或者联系方式。",
-
-        quick:
-          [
-            "大概多少钱？",
-            "可以做网站吗？",
-            "多久能完成？",
-            "联系开发者"
-          ]
-
-      },
-
-
-      ja: {
-
-        label: "日本語",
-
-        language: "言語",
-
-        badge:
-          "💻 Code1124Dev · 開発",
-
-        title1:
-          "アイデアを",
-
-        title2:
-          "コードに",
-
-        subtitle:
-          "Web制作 · 機能開発 · バグ修正 · 最適化<br>アイデアを形にするお手伝いをします。",
-
-        view:
-          "サービスを見る →",
-
-        ask:
-          "AIサポート",
-
-        services:
-          "できること",
-
-        desc:
-          "シンプルで効率的な開発",
-
-        webTitle:
-          "Web制作",
-
-        webText:
-          "個人サイト、ランディングページ、レスポンシブWebページなど。",
-
-        featureTitle:
-          "機能開発",
-
-        featureText:
-          "HTML、CSS、JavaScriptを使った機能開発。",
-
-        fixTitle:
-          "修正・改善",
-
-        fixText:
-          "バグ修正、レイアウト調整、コード改善など。",
-
-        placeholder:
-          "質問を入力...",
-
-        greeting:
-          "こんにちは 👋 Code AIです。料金、Web制作、バグ修正、納期などについて質問できます。",
-
-        quick:
-          [
-            "料金はいくら？",
-            "Webサイトを作れる？",
-            "どのくらいかかる？",
-            "開発者に連絡"
-          ]
-
-      },
-
-
-      ko: {
-
-        label: "한국어",
-        language: "언어",
-
-        badge:
-          "💻 Code1124Dev · 개발",
-
-        title1:
-          "아이디어를",
-
-        title2:
-          "코드로",
-
-        subtitle:
-          "웹 개발 · 기능 개발 · 버그 수정 · 최적화<br>아이디어를 실제 코드로 만들어드립니다.",
-
-        view:
-          "서비스 보기 →",
-
-        ask:
-          "AI 상담",
-
-        services:
-          "무엇을 만들 수 있나요?",
-
-        desc:
-          "간단하고 효율적인 개발",
-
-        webTitle:
-          "웹 개발",
-
-        webText:
-          "개인 웹사이트, 랜딩 페이지, 반응형 웹페이지 제작.",
-
-        featureTitle:
-          "기능 개발",
-
-        featureText:
-          "HTML, CSS, JavaScript 기반 기능 개발.",
-
-        fixTitle:
-          "수정 및 개선",
-
-        fixText:
-          "버그 수정, 레이아웃 개선, 코드 수정.",
-
-        placeholder:
-          "질문을 입력하세요...",
-
-        greeting:
-          "안녕하세요 👋 Code AI입니다. 가격, 웹 개발, 버그 수정, 개발 기간 등을 물어보세요.",
-
-        quick:
-          [
-            "가격은 얼마인가요?",
-            "웹사이트 제작 가능?",
-            "기간은 얼마나 걸리나요?",
-            "개발자에게 연락"
-          ]
-
-      },
-
-
-      es: {
-
-        label: "Español",
-        language: "Idioma",
-
-        badge:
-          "💻 Code1124Dev · Desarrollo",
-
-        title1:
-          "Convierte tus ideas",
-
-        title2:
-          "En código",
-
-        subtitle:
-          "Desarrollo web · Funciones · Corrección de errores · Optimización",
-
-        view:
-          "Ver servicios →",
-
-        ask:
-          "Soporte AI",
-
-        services:
-          "¿Qué puedo crear?",
-
-        desc:
-          "Desarrollo simple y eficiente",
-
-        webTitle:
-          "Desarrollo Web",
-
-        webText:
-          "Sitios personales, landing pages y páginas responsive.",
-
-        featureTitle:
-          "Desarrollo de funciones",
-
-        featureText:
-          "Funciones creadas con HTML, CSS y JavaScript.",
-
-        fixTitle:
-          "Correcciones",
-
-        fixText:
-          "Corrección de errores y mejoras de código.",
-
-        placeholder:
-          "Escribe tu pregunta...",
-
-        greeting:
-          "Hola 👋 Soy Code AI. Puedes preguntarme sobre precios, desarrollo web, errores y tiempos de entrega.",
-
-        quick:
-          [
-            "¿Cuánto cuesta?",
-            "¿Puedes crear una web?",
-            "¿Cuánto tarda?",
-            "Contactar"
-          ]
-
-      },
-
-
-      fr: {
-
-        label: "Français",
-        language: "Langue",
-
-        badge:
-          "💻 Code1124Dev · Développement",
-
-        title1:
-          "Transformez vos idées",
-
-        title2:
-          "En code",
-
-        subtitle:
-          "Développement Web · Fonctionnalités · Correction de bugs · Optimisation",
-
-        view:
-          "Voir les services →",
-
-        ask:
-          "Support IA",
-
-        services:
-          "Que puis-je créer ?",
-
-        desc:
-          "Développement simple et efficace",
-
-        webTitle:
-          "Développement Web",
-
-        webText:
-          "Sites personnels, landing pages et pages responsive.",
-
-        featureTitle:
-          "Fonctionnalités",
-
-        featureText:
-          "Fonctionnalités développées en HTML, CSS et JavaScript.",
-
-        fixTitle:
-          "Corrections",
-
-        fixText:
-          "Correction de bugs et amélioration du code.",
-
-        placeholder:
-          "Posez votre question...",
-
-        greeting:
-          "Bonjour 👋 Je suis Code AI. Vous pouvez me demander les tarifs, délais et services disponibles.",
-
-        quick:
-          [
-            "Combien ça coûte ?",
-            "Créer un site ?",
-            "Quel délai ?",
-            "Contacter"
-          ]
-
+        unknown:
+          "Tell me what you want to build, your approximate budget and your deadline. I'll help identify the right service."
       }
-
-    };
-
+    },
 
 
-    function setLanguage(lang) {
+    zh: {
+      label: "中文",
+      language: "语言",
+      status: "当前可接单",
 
-      currentLanguage =
-        lang;
+      badge: "💻 Code1124Dev · 代码开发",
 
-      localStorage.setItem(
-        "language",
-        lang
-      );
+      hero1: "把你的想法",
+      hero2: "变成代码",
 
+      subtitle:
+        "网页制作 · Python · BUG 修复 · 定制代码<br>把你的需求告诉我们，我们会先帮你判断如何实现。",
 
-      const t =
-        translations[lang];
+      servicesBtn: "查看服务 →",
+      supportBtn: "咨询客服",
 
+      servicesTitle: "我们可以做什么",
+      servicesDesc:
+        "适合简单项目以及定制需求的开发服务。",
 
-      document
-        .documentElement
-        .lang =
-        lang;
+      webTitle: "网页制作",
+      webText:
+        "个人主页、落地页、作品展示页以及手机自适应网页。",
 
+      pythonTitle: "Python 脚本",
+      pythonText:
+        "简单自动化、数据处理、小工具以及定制 Python 脚本。",
 
-      document
-        .getElementById(
-          "languageTitle"
-        )
-        .textContent =
-        t.language;
+      bugTitle: "BUG 修复",
+      bugText:
+        "检查报错、修改代码、页面问题以及简单功能优化。",
 
+      customTitle: "定制代码",
+      customText:
+        "有自己的小项目或功能想法？可以先把需求发来判断。",
 
-      document
-        .getElementById(
-          "languageLabel"
-        )
-        .textContent =
-        t.label;
+      paymentTitle: "付款流程",
+      paymentDesc:
+        "定制项目采用分阶段付款，双方都有保障。",
 
+      pay1Title: "确认需求",
+      pay1Text:
+        "确认功能、价格和预计完成时间。",
 
-      document
-        .getElementById(
-          "badge"
-        )
-        .textContent =
-        t.badge;
+      pay2Title: "支付 30% 定金",
+      pay2Text:
+        "确认收到定金后正式开始制作。",
 
+      pay3Title: "查看预览",
+      pay3Text:
+        "完成后先提供预览效果确认。",
 
-      document
-        .getElementById(
-          "title1"
-        )
-        .textContent =
-        t.title1;
+      pay4Title: "支付剩余 70%",
+      pay4Text:
+        "支付尾款后交付最终文件。",
 
+      deposit:
+        "定制开发通常需要支付 30% 定金。项目正式开始后，因为已经投入开发时间，定金原则上不退；如果我们最终无法完成已经确认的需求，则会退还相应款项。",
 
-      document
-        .getElementById(
-          "title2"
-        )
-        .textContent =
-        t.title2;
+      inquiryTitle: "项目咨询",
+      inquiryDesc:
+        "提前整理需求，可以更快判断价格和工期。",
 
+      project: "项目类型",
+      budget: "预算",
+      deadline: "希望完成时间",
+      reference: "参考资料",
+      requirements: "具体需求",
 
-      document
-        .getElementById(
-          "subtitle"
-        )
-        .innerHTML =
-        t.subtitle;
+      generate: "生成咨询文案",
+      copy: "复制",
 
+      privacy:
+        "隐私提醒：请不要发送密码、验证码、银行卡信息或其他敏感账号信息。",
 
-      document
-        .getElementById(
-          "viewServices"
-        )
-        .textContent =
-        t.view;
+      contactTitle: "联系方式",
+      contactDesc:
+        "选择你方便的平台联系我们。",
 
+      whatsapp: "直接聊天",
 
-      document
-        .getElementById(
-          "askAiButton"
-        )
-        .textContent =
-        t.ask;
+      online: "● 在线",
+      placeholder: "输入你的问题...",
 
+      greeting:
+        "你好 👋 我是 Code AI 客服。可以问我价格、30% 定金、网页制作、Python、BUG 修复、工期、退款规则和联系方式。",
 
-      document
-        .getElementById(
-          "servicesTitle"
-        )
-        .textContent =
-        t.services;
+      quick: [
+        "大概多少钱？",
+        "为什么要30%定金？",
+        "可以修BUG吗？",
+        "大概要多久？"
+      ],
 
+      replies: {
+        price:
+          "价格主要看复杂度。简单修改大约 ¥20～50 起，简单网页或脚本大约 ¥50～150，功能更多的项目会根据具体需求报价。",
 
-      document
-        .getElementById(
-          "servicesDesc"
-        )
-        .textContent =
-        t.desc;
+        deposit:
+          "定制开发通常采用 30% 定金 + 70% 尾款。确认需求和价格后支付定金，收到定金后开始制作，确认预览后支付剩余 70%。",
 
+        refund:
+          "项目正式开始后，因为已经投入开发时间，定金原则上不退。如果最终因为我们无法完成已经确认的需求，则会退还相应款项。",
 
-      document
-        .getElementById(
-          "webTitle"
-        )
-        .textContent =
-        t.webTitle;
+        website:
+          "可以制作个人主页、展示页、落地页、响应式网页和一些简单交互功能。最好提供参考图或功能说明。",
 
+        python:
+          "可以处理简单 Python 自动化、数据处理、脚本和小工具。建议说明输入是什么、输出是什么、具体需要哪些功能。",
 
-      document
-        .getElementById(
-          "webText"
-        )
-        .textContent =
-        t.webText;
+        bug:
+          "可以先检查。请提供完整报错信息、截图以及相关代码，我们会先判断问题，再确认修复方式和价格。",
 
+        time:
+          "简单修改通常比较快，复杂项目会需要更久。先提供完整需求，我们再根据功能和难度估算工期。",
 
-      document
-        .getElementById(
-          "featureTitle"
-        )
-        .textContent =
-        t.featureTitle;
+        contact:
+          `可以通过 WhatsApp、Instagram、LINE 或邮箱联系我们。<br><br>✉️ ${EMAIL}`,
 
-
-      document
-        .getElementById(
-          "featureText"
-        )
-        .textContent =
-        t.featureText;
+        unknown:
+          "直接告诉我“想做什么 + 预算 + 希望多久完成 + 有没有参考效果”，我会帮你判断适合哪种服务。"
+      }
+    },
 
 
-      document
-        .getElementById(
-          "fixTitle"
-        )
-        .textContent =
-        t.fixTitle;
+    ja: {
+      label: "日本語",
+      language: "言語",
+      status: "現在受付中",
+
+      badge: "💻 Code1124Dev · Web開発",
+
+      hero1: "アイデアを",
+      hero2: "コードに変える",
+
+      subtitle:
+        "Web制作 · Python · バグ修正 · カスタム開発<br>作りたいものがあれば、まずは内容をご相談ください。",
+
+      servicesBtn: "サービスを見る →",
+      supportBtn: "サポートに相談",
+
+      servicesTitle: "対応できること",
+      servicesDesc:
+        "小規模なプロジェクトやカスタム開発に対応します。",
+
+      webTitle: "Webサイト制作",
+      webText:
+        "個人サイト、ランディングページ、ポートフォリオ、レスポンシブページなど。",
+
+      pythonTitle: "Pythonスクリプト",
+      pythonText:
+        "簡単な自動化、データ処理、小型ツール、カスタムスクリプト。",
+
+      bugTitle: "バグ修正",
+      bugText:
+        "エラー調査、コード修正、レイアウト調整、簡単な機能改善。",
+
+      customTitle: "カスタム開発",
+      customText:
+        "小さなアイデアや追加機能も、まずは内容をご相談ください。",
+
+      paymentTitle: "お支払いの流れ",
+      paymentDesc:
+        "カスタム開発は段階的なお支払いで進めます。",
+
+      pay1Title: "要件確認",
+      pay1Text:
+        "機能、料金、予定納期を確認します。",
+
+      pay2Title: "30%の着手金",
+      pay2Text:
+        "着手金確認後、制作を開始します。",
+
+      pay3Title: "プレビュー",
+      pay3Text:
+        "完成イメージをご確認いただきます。",
+
+      pay4Title: "残り70%",
+      pay4Text:
+        "残金確認後、最終ファイルを納品します。",
+
+      deposit:
+        "カスタム開発では通常30%の着手金をお願いしています。制作開始後は作業時間を確保しているため、原則として返金できません。ただし、確認済みの要件をこちらで完了できない場合は、該当する料金を返金します。",
+
+      inquiryTitle: "プロジェクト相談",
+      inquiryDesc:
+        "事前に内容を整理すると、料金や納期を確認しやすくなります。",
+
+      project: "プロジェクト種類",
+      budget: "予算",
+      deadline: "希望納期",
+      reference: "参考資料",
+      requirements: "ご要望",
+
+      generate: "相談文を作成",
+      copy: "コピー",
+
+      privacy:
+        "パスワード、認証コード、カード情報などの機密情報は送信しないでください。",
+
+      contactTitle: "お問い合わせ",
+      contactDesc:
+        "ご希望の連絡方法を選択してください。",
+
+      whatsapp: "チャットする",
+
+      online: "● オンライン",
+      placeholder: "質問を入力してください...",
+
+      greeting:
+        "こんにちは 👋 Code AIサポートです。料金、30%の着手金、Web制作、Python、バグ修正、納期、返金、連絡方法についてご案内できます。",
+
+      quick: [
+        "料金はいくら？",
+        "30%の着手金とは？",
+        "バグ修正できる？",
+        "納期はどのくらい？"
+      ],
+
+      replies: {
+        price:
+          "料金は内容の複雑さによって変わります。簡単な修正は約¥20～50、簡単なWeb制作やスクリプトは約¥50～150からが目安です。",
+
+        deposit:
+          "カスタム開発は通常、30%の着手金と70%の残金で進めます。着手金確認後に制作を開始します。",
+
+        refund:
+          "制作開始後は作業時間を確保しているため、着手金は原則返金できません。こちらの都合で確認済み要件を完了できない場合は、該当金額を返金します。",
+
+        website:
+          "個人サイト、ランディングページ、ポートフォリオ、レスポンシブページ、簡単なインタラクティブ機能などに対応できます。",
+
+        python:
+          "簡単なPython自動化、データ処理、スクリプト、小型ツールなどに対応できます。",
+
+        bug:
+          "対応可能です。エラーメッセージ、スクリーンショット、関連コードをご用意ください。まず内容を確認してから料金をご案内します。",
+
+        time:
+          "納期は内容によって変わります。まず完全な要件を送っていただければ、より正確な予定をご案内できます。",
+
+        contact:
+          `WhatsApp、Instagram、LINE、メールからお問い合わせいただけます。<br><br>✉️ ${EMAIL}`,
+
+        unknown:
+          "作りたい内容、予算、希望納期、参考資料があれば教えてください。適したサービスをご案内します。"
+      }
+    },
 
 
-      document
-        .getElementById(
-          "fixText"
-        )
-        .textContent =
-        t.fixText;
+    ko: {
+      label: "한국어",
+      language: "언어",
+      status: "현재 작업 가능",
+
+      badge: "💻 Code1124Dev · 웹 개발",
+
+      hero1: "아이디어를",
+      hero2: "코드로 구현합니다",
+
+      subtitle:
+        "웹 개발 · Python · 버그 수정 · 맞춤 코드<br>원하는 기능을 알려주시면 구현 방법을 함께 확인해드립니다.",
+
+      servicesBtn: "서비스 보기 →",
+      supportBtn: "상담하기",
+
+      servicesTitle: "제공 가능한 서비스",
+      servicesDesc:
+        "소규모 프로젝트와 맞춤 개발을 지원합니다.",
+
+      webTitle: "웹 개발",
+      webText:
+        "개인 홈페이지, 랜딩 페이지, 포트폴리오 및 반응형 웹페이지.",
+
+      pythonTitle: "Python 스크립트",
+      pythonText:
+        "간단한 자동화, 데이터 처리, 유틸리티 및 맞춤 스크립트.",
+
+      bugTitle: "버그 수정",
+      bugText:
+        "오류 확인, 코드 수정, 레이아웃 문제 및 간단한 기능 개선.",
+
+      customTitle: "맞춤 코드",
+      customText:
+        "작은 프로젝트나 원하는 기능이 있다면 요구사항을 보내주세요.",
+
+      paymentTitle: "결제 절차",
+      paymentDesc:
+        "맞춤 개발은 단계별 결제로 진행됩니다.",
+
+      pay1Title: "요구사항 확인",
+      pay1Text:
+        "기능, 가격, 예상 기간을 확인합니다.",
+
+      pay2Title: "30% 계약금",
+      pay2Text:
+        "계약금 확인 후 개발을 시작합니다.",
+
+      pay3Title: "미리보기",
+      pay3Text:
+        "완성된 미리보기 버전을 확인합니다.",
+
+      pay4Title: "나머지 70%",
+      pay4Text:
+        "잔금 결제 후 최종 파일을 전달합니다.",
+
+      deposit:
+        "맞춤 개발은 일반적으로 30%의 계약금이 필요합니다. 작업이 시작된 후에는 개발 시간이 투입되므로 계약금은 원칙적으로 환불되지 않습니다. 단, 확인된 요구사항을 저희가 완료할 수 없는 경우 해당 금액을 환불합니다.",
+
+      inquiryTitle: "프로젝트 문의",
+      inquiryDesc:
+        "요구사항을 미리 정리하면 가격과 기간을 더 정확하게 확인할 수 있습니다.",
+
+      project: "프로젝트 종류",
+      budget: "예산",
+      deadline: "희망 완료일",
+      reference: "참고 자료",
+      requirements: "구체적인 요구사항",
+
+      generate: "문의 문장 생성",
+      copy: "복사",
+
+      privacy:
+        "비밀번호, 인증 코드, 카드 정보 등 민감한 개인정보는 보내지 마세요.",
+
+      contactTitle: "연락하기",
+      contactDesc:
+        "편한 플랫폼을 선택하세요.",
+
+      whatsapp: "바로 채팅",
+
+      online: "● 온라인",
+      placeholder: "질문을 입력하세요...",
+
+      greeting:
+        "안녕하세요 👋 Code AI 상담입니다. 가격, 30% 계약금, 웹 개발, Python, 버그 수정, 기간, 환불 및 연락 방법을 안내해드립니다.",
+
+      quick: [
+        "가격은 얼마예요?",
+        "30% 계약금은 왜 필요한가요?",
+        "버그 수정 가능?",
+        "얼마나 걸려요?"
+      ],
+
+      replies: {
+        price:
+          "가격은 작업 난이도에 따라 달라집니다. 간단한 수정은 약 ¥20～50, 간단한 웹이나 스크립트는 약 ¥50～150부터 시작할 수 있습니다.",
+
+        deposit:
+          "맞춤 개발은 일반적으로 30% 계약금 + 70% 잔금 방식으로 진행됩니다.",
+
+        refund:
+          "개발 시작 후에는 작업 시간이 투입되므로 계약금은 원칙적으로 환불되지 않습니다. 확인된 요구사항을 저희가 완료하지 못하는 경우 해당 금액을 환불합니다.",
+
+        website:
+          "개인 홈페이지, 랜딩 페이지, 포트폴리오, 반응형 페이지 및 간단한 인터랙션 기능을 상담할 수 있습니다.",
+
+        python:
+          "간단한 Python 자동화, 데이터 처리, 스크립트 및 소형 도구를 검토할 수 있습니다.",
+
+        bug:
+          "가능합니다. 오류 메시지, 스크린샷, 관련 코드를 보내주세요. 먼저 문제를 확인한 후 가격을 안내합니다.",
+
+        time:
+          "기간은 난이도에 따라 달라집니다. 전체 요구사항을 보내주시면 현실적인 예상 기간을 안내할 수 있습니다.",
+
+        contact:
+          `WhatsApp, Instagram, LINE 또는 이메일로 연락할 수 있습니다.<br><br>✉️ ${EMAIL}`,
+
+        unknown:
+          "원하는 기능, 예산, 희망 완료일, 참고 자료를 알려주세요. 적절한 서비스를 안내해드립니다."
+      }
+    },
 
 
-      document
-        .getElementById(
-          "chatInput"
-        )
-        .placeholder =
-        t.placeholder;
+    es: {
+      label: "Español",
+      language: "Idioma",
+      status: "Aceptando proyectos",
+
+      badge: "💻 Code1124Dev · Desarrollo",
+
+      hero1: "Convierte tus ideas",
+      hero2: "En código",
+
+      subtitle:
+        "Desarrollo web · Python · Corrección de errores · Código personalizado<br>Cuéntanos qué quieres crear y revisaremos la mejor solución.",
+
+      servicesBtn: "Ver servicios →",
+      supportBtn: "Consultar",
+
+      servicesTitle: "Qué podemos hacer",
+      servicesDesc:
+        "Servicios de desarrollo para proyectos pequeños y personalizados.",
+
+      webTitle: "Desarrollo web",
+      webText:
+        "Sitios personales, landing pages, portfolios y páginas responsive.",
+
+      pythonTitle: "Scripts Python",
+      pythonText:
+        "Automatización, procesamiento de datos y pequeñas herramientas.",
+
+      bugTitle: "Corrección de errores",
+      bugText:
+        "Diagnóstico de errores, cambios de código y mejoras sencillas.",
+
+      customTitle: "Código personalizado",
+      customText:
+        "¿Tienes una pequeña idea o función? Envíanos los requisitos.",
+
+      paymentTitle: "Proceso de pago",
+      paymentDesc:
+        "Los proyectos personalizados se pagan por etapas.",
+
+      pay1Title: "Confirmar requisitos",
+      pay1Text:
+        "Confirmamos funciones, precio y plazo.",
+
+      pay2Title: "Depósito del 30%",
+      pay2Text:
+        "El desarrollo comienza después del depósito.",
+
+      pay3Title: "Vista previa",
+      pay3Text:
+        "Revisa el resultado antes de la entrega final.",
+
+      pay4Title: "70% restante",
+      pay4Text:
+        "Los archivos finales se entregan después del pago restante.",
+
+      deposit:
+        "Los proyectos personalizados normalmente requieren un depósito del 30%. Una vez iniciado el trabajo, el depósito generalmente no es reembolsable porque ya se ha reservado tiempo de desarrollo. Si no podemos completar los requisitos confirmados, se devolverá el importe correspondiente.",
+
+      inquiryTitle: "Consulta de proyecto",
+      inquiryDesc:
+        "Organiza tus requisitos antes de contactarnos.",
+
+      project: "Tipo de proyecto",
+      budget: "Presupuesto",
+      deadline: "Fecha límite",
+      reference: "Referencia",
+      requirements: "Requisitos",
+
+      generate: "Generar consulta",
+      copy: "Copiar",
+
+      privacy:
+        "No envíes contraseñas, códigos de verificación, datos bancarios u otra información sensible.",
+
+      contactTitle: "Contacto",
+      contactDesc:
+        "Elige la plataforma que prefieras.",
+
+      whatsapp: "Abrir chat",
+
+      online: "● En línea",
+      placeholder: "Escribe tu pregunta...",
+
+      greeting:
+        "Hola 👋 Soy Code AI Support. Puedo ayudarte con precios, depósito del 30%, desarrollo web, Python, errores, plazos, reembolsos y contacto.",
+
+      quick: [
+        "¿Cuánto cuesta?",
+        "¿Por qué 30% de depósito?",
+        "¿Corrigen errores?",
+        "¿Cuánto tarda?"
+      ],
+
+      replies: {
+        price:
+          "El precio depende de la complejidad. Las correcciones pequeñas pueden comenzar alrededor de ¥20–50 y los sitios o scripts sencillos alrededor de ¥50–150.",
+
+        deposit:
+          "Los proyectos personalizados normalmente utilizan un depósito del 30% y un pago final del 70%.",
+
+        refund:
+          "Una vez iniciado el trabajo, el depósito generalmente no es reembolsable. Si no podemos completar los requisitos confirmados, se devolverá el importe correspondiente.",
+
+        website:
+          "Podemos revisar sitios personales, landing pages, portfolios, diseños responsive y funciones interactivas sencillas.",
+
+        python:
+          "Podemos revisar scripts Python sencillos, automatización, procesamiento de datos y pequeñas herramientas.",
+
+        bug:
+          "Sí. Envía el error exacto, una captura y el código relacionado. Revisaremos el problema antes de confirmar el precio.",
+
+        time:
+          "El plazo depende de la complejidad. Envía todos los requisitos para obtener una estimación realista.",
+
+        contact:
+          `Puedes contactar por WhatsApp, Instagram, LINE o email.<br><br>✉️ ${EMAIL}`,
+
+        unknown:
+          "Describe qué quieres crear, tu presupuesto y el plazo deseado para poder orientarte."
+      }
+    },
 
 
-      document
-        .querySelectorAll(
-          ".language-option"
-        )
-        .forEach(
-          item =>
-            item.classList
-            .remove("active")
-        );
+    fr: {
+      label: "Français",
+      language: "Langue",
+      status: "Projets acceptés",
 
+      badge: "💻 Code1124Dev · Développement",
 
-      document
-        .getElementById(
-          "lang-" + lang
-        )
-        .classList
-        .add("active");
+      hero1: "Transformez vos idées",
+      hero2: "En code",
 
+      subtitle:
+        "Développement web · Python · Correction de bugs · Code personnalisé<br>Décrivez votre projet et nous chercherons la bonne solution.",
 
-      languageBox
-        .classList
-        .remove("open");
+      servicesBtn: "Voir les services →",
+      supportBtn: "Assistance",
 
+      servicesTitle: "Ce que nous proposons",
+      servicesDesc:
+        "Services de développement pour petits projets et besoins personnalisés.",
 
-      resetChat();
+      webTitle: "Développement web",
+      webText:
+        "Sites personnels, landing pages, portfolios et pages responsive.",
 
+      pythonTitle: "Scripts Python",
+      pythonText:
+        "Automatisation simple, traitement de données et petits outils.",
+
+      bugTitle: "Correction de bugs",
+      bugText:
+        "Diagnostic d’erreurs, correction du code et améliorations simples.",
+
+      customTitle: "Code personnalisé",
+      customText:
+        "Une petite idée ou fonctionnalité ? Envoyez-nous vos besoins.",
+
+      paymentTitle: "Processus de paiement",
+      paymentDesc:
+        "Les projets personnalisés sont payés par étapes.",
+
+      pay1Title: "Confirmer les besoins",
+      pay1Text:
+        "Validation des fonctions, du prix et du délai.",
+
+      pay2Title: "Acompte de 30%",
+      pay2Text:
+        "Le développement commence après l’acompte.",
+
+      pay3Title: "Aperçu",
+      pay3Text:
+        "Vérifiez le résultat avant la livraison finale.",
+
+      pay4Title: "Solde de 70%",
+      pay4Text:
+        "Les fichiers finaux sont livrés après le paiement du solde.",
+
+      deposit:
+        "Les projets personnalisés nécessitent généralement un acompte de 30%. Une fois le travail commencé, cet acompte est en principe non remboursable car du temps de développement a déjà été réservé. Si nous ne pouvons pas réaliser les exigences confirmées, le montant correspondant sera remboursé.",
+
+      inquiryTitle: "Demande de projet",
+      inquiryDesc:
+        "Préparez vos besoins avant de nous contacter.",
+
+      project: "Type de projet",
+      budget: "Budget",
+      deadline: "Délai",
+      reference: "Référence",
+      requirements: "Besoins",
+
+      generate: "Générer la demande",
+      copy: "Copier",
+
+      privacy:
+        "N’envoyez jamais de mot de passe, code de vérification, données bancaires ou autre information sensible.",
+
+      contactTitle: "Contact",
+      contactDesc:
+        "Choisissez la plateforme que vous préférez.",
+
+      whatsapp: "Ouvrir le chat",
+
+      online: "● En ligne",
+      placeholder: "Posez votre question...",
+
+      greeting:
+        "Bonjour 👋 Je suis Code AI Support. Je peux vous renseigner sur les prix, l’acompte de 30%, le développement web, Python, les bugs, les délais, les remboursements et les contacts.",
+
+      quick: [
+        "Quel est le prix ?",
+        "Pourquoi 30% d’acompte ?",
+        "Corrigez-vous les bugs ?",
+        "Quel est le délai ?"
+      ],
+
+      replies: {
+        price:
+          "Le prix dépend de la complexité. Les petites corrections peuvent commencer autour de ¥20–50 et les sites ou scripts simples autour de ¥50–150.",
+
+        deposit:
+          "Les projets personnalisés utilisent généralement un acompte de 30% et un paiement final de 70%.",
+
+        refund:
+          "Une fois le travail commencé, l’acompte est en principe non remboursable. Si nous ne pouvons pas réaliser les exigences confirmées, le montant correspondant sera remboursé.",
+
+        website:
+          "Nous pouvons étudier des sites personnels, landing pages, portfolios, interfaces responsive et fonctions interactives simples.",
+
+        python:
+          "Nous pouvons examiner des scripts Python simples, de l’automatisation, du traitement de données et de petits outils.",
+
+        bug:
+          "Oui. Envoyez le message d’erreur exact, une capture et le code concerné. Nous examinerons le problème avant de confirmer le tarif.",
+
+        time:
+          "Le délai dépend de la complexité. Envoyez l’ensemble des besoins pour obtenir une estimation réaliste.",
+
+        contact:
+          `Vous pouvez nous contacter via WhatsApp, Instagram, LINE ou email.<br><br>✉️ ${EMAIL}`,
+
+        unknown:
+          "Décrivez votre projet, votre budget et le délai souhaité afin que je puisse vous orienter."
+      }
     }
+  };
 
 
+  const languageWrap =
+    document.getElementById("languageWrap");
 
-    /* =========================
-       语言菜单
-    ========================= */
+  const support =
+    document.getElementById("support");
 
-    const languageBox =
-      document.getElementById(
-        "languageBox"
-      );
+  const messages =
+    document.getElementById("chatMessages");
+
+  const chatInput =
+    document.getElementById("chatInput");
+
+  let lastInquiry = "";
 
 
-    document
-      .getElementById(
-        "languageButton"
-      )
-      .onclick =
+  document
+    .getElementById("languageButton")
+    .addEventListener(
+      "click",
       function(event) {
 
         event.stopPropagation();
 
-        languageBox
+        languageWrap
           .classList
           .toggle("open");
 
-      };
+      }
+    );
 
 
+  function setLanguage(lang) {
 
-    /* =========================
-       AI 客服
-    ========================= */
+    currentLanguage = lang;
 
-    const aiSupport =
-      document.getElementById(
-        "aiSupport"
-      );
+    localStorage.setItem(
+      "code1124_language",
+      lang
+    );
 
+    const x = t[lang];
 
-    const messages =
-      document.getElementById(
-        "chatMessages"
-      );
+    document.documentElement.lang = lang;
 
+    document.getElementById("languageWord").textContent = x.language;
+    document.getElementById("languageLabel").textContent = x.label;
+    document.getElementById("statusText").textContent = x.status;
 
-    const input =
-      document.getElementById(
-        "chatInput"
-      );
+    document.getElementById("badge").textContent = x.badge;
 
+    document.getElementById("heroOne").textContent = x.hero1;
+    document.getElementById("heroTwo").textContent = x.hero2;
+    document.getElementById("heroSubtitle").innerHTML = x.subtitle;
 
-    function toggleChat() {
+    document.getElementById("servicesBtn").textContent = x.servicesBtn;
+    document.getElementById("supportBtn").textContent = x.supportBtn;
 
-      aiSupport
-        .classList
-        .toggle("open");
+    document.getElementById("servicesTitle").textContent = x.servicesTitle;
+    document.getElementById("servicesDesc").textContent = x.servicesDesc;
 
-    }
+    document.getElementById("webTitle").textContent = x.webTitle;
+    document.getElementById("webText").textContent = x.webText;
 
+    document.getElementById("pythonTitle").textContent = x.pythonTitle;
+    document.getElementById("pythonText").textContent = x.pythonText;
 
-    function openChat() {
+    document.getElementById("bugTitle").textContent = x.bugTitle;
+    document.getElementById("bugText").textContent = x.bugText;
 
-      aiSupport
-        .classList
-        .add("open");
+    document.getElementById("customTitle").textContent = x.customTitle;
+    document.getElementById("customText").textContent = x.customText;
 
-      setTimeout(
-        () => input.focus(),
-        200
-      );
+    document.getElementById("paymentTitle").textContent = x.paymentTitle;
+    document.getElementById("paymentDesc").textContent = x.paymentDesc;
 
-    }
+    document.getElementById("pay1Title").textContent = x.pay1Title;
+    document.getElementById("pay1Text").textContent = x.pay1Text;
 
+    document.getElementById("pay2Title").textContent = x.pay2Title;
+    document.getElementById("pay2Text").textContent = x.pay2Text;
 
+    document.getElementById("pay3Title").textContent = x.pay3Title;
+    document.getElementById("pay3Text").textContent = x.pay3Text;
 
-    function addMessage(
-      text,
-      type
-    ) {
+    document.getElementById("pay4Title").textContent = x.pay4Title;
+    document.getElementById("pay4Text").textContent = x.pay4Text;
 
-      const message =
-        document
-        .createElement("div");
+    document.getElementById("depositNote").textContent = x.deposit;
 
+    document.getElementById("inquiryTitle").textContent = x.inquiryTitle;
+    document.getElementById("inquiryDesc").textContent = x.inquiryDesc;
 
-      message.className =
-        "message " + type;
+    document.getElementById("projectLabel").textContent = x.project;
+    document.getElementById("budgetLabel").textContent = x.budget;
+    document.getElementById("deadlineLabel").textContent = x.deadline;
+    document.getElementById("referenceLabel").textContent = x.reference;
+    document.getElementById("requirementsLabel").textContent = x.requirements;
 
+    document.getElementById("generateBtn").textContent = x.generate;
+    document.getElementById("copyInquiryBtn").textContent = x.copy;
+    document.getElementById("privacyText").textContent = x.privacy;
 
-      message.innerHTML =
-        text;
+    document.getElementById("contactTitle").textContent = x.contactTitle;
+    document.getElementById("contactDesc").textContent = x.contactDesc;
+    document.getElementById("whatsappText").textContent = x.whatsapp;
 
+    document.getElementById("agentStatus").textContent = x.online;
+    chatInput.placeholder = x.placeholder;
 
-      messages
-        .appendChild(message);
+    document
+      .querySelectorAll(".language-option")
+      .forEach(btn => btn.classList.remove("active"));
 
+    document
+      .getElementById("lang-" + lang)
+      .classList
+      .add("active");
 
-      messages.scrollTop =
-        messages.scrollHeight;
+    languageWrap.classList.remove("open");
 
-    }
-
-
-
-    function resetChat() {
-
-      messages.innerHTML =
-        "";
-
-
-      const t =
-        translations[
-          currentLanguage
-        ];
-
-
-      addMessage(
-        t.greeting,
-        "bot"
-      );
-
-
-      renderQuickQuestions();
-
-    }
+    resetChat();
+  }
 
 
-
-    function renderQuickQuestions() {
-
-      const quickArea =
-        document
-        .getElementById(
-          "quickArea"
-        );
+  function toggleChat() {
+    support.classList.toggle("open");
+  }
 
 
-      quickArea.innerHTML =
-        "";
+  function openChat() {
+
+    support.classList.add("open");
+
+    setTimeout(
+      () => chatInput.focus(),
+      150
+    );
+  }
 
 
-      translations[
-        currentLanguage
-      ]
+  function addMessage(text, type) {
+
+    const div =
+      document.createElement("div");
+
+    div.className =
+      "message " + type;
+
+    div.innerHTML = text;
+
+    messages.appendChild(div);
+
+    messages.scrollTop =
+      messages.scrollHeight;
+  }
+
+
+  function resetChat() {
+
+    messages.innerHTML = "";
+
+    addMessage(
+      t[currentLanguage].greeting,
+      "bot"
+    );
+
+    renderQuick();
+  }
+
+
+  function renderQuick() {
+
+    const area =
+      document.getElementById("quickArea");
+
+    area.innerHTML = "";
+
+    t[currentLanguage]
       .quick
-      .forEach(
-        question => {
+      .forEach(question => {
 
-          const button =
-            document
-            .createElement(
-              "button"
-            );
+        const btn =
+          document.createElement("button");
 
+        btn.className = "quick-btn";
+        btn.textContent = question;
 
-          button
-            .className =
-            "quick-question";
-
-
-          button
-            .textContent =
-            question;
-
-
-          button.onclick =
-            function() {
-
-              input.value =
-                question;
-
-              sendMessage();
-
-            };
-
-
-          quickArea
-            .appendChild(
-              button
-            );
-
-        }
-      );
-
-    }
-
-
-
-    /* =========================
-       智能回复逻辑
-    ========================= */
-
-    function smartReply(text) {
-
-      const q =
-        text
-        .toLowerCase()
-        .trim();
-
-
-
-      /* 价格 */
-      if (
-        q.includes("price")
-        ||
-        q.includes("cost")
-        ||
-        q.includes("多少钱")
-        ||
-        q.includes("价格")
-        ||
-        q.includes("收费")
-        ||
-        q.includes("料金")
-        ||
-        q.includes("얼마")
-        ||
-        q.includes("cuánto")
-        ||
-        q.includes("combien")
-      ) {
-
-        return localReply(
-          "pricing"
-        );
-
-      }
-
-
-
-      /* 网站 */
-      if (
-        q.includes("website")
-        ||
-        q.includes("web")
-        ||
-        q.includes("网站")
-        ||
-        q.includes("网页")
-        ||
-        q.includes("サイト")
-        ||
-        q.includes("웹")
-      ) {
-
-        return localReply(
-          "website"
-        );
-
-      }
-
-
-
-      /* bug */
-      if (
-        q.includes("bug")
-        ||
-        q.includes("error")
-        ||
-        q.includes("报错")
-        ||
-        q.includes("错误")
-        ||
-        q.includes("修复")
-        ||
-        q.includes("エラー")
-        ||
-        q.includes("버그")
-      ) {
-
-        return localReply(
-          "bug"
-        );
-
-      }
-
-
-
-      /* 时间 */
-      if (
-        q.includes("time")
-        ||
-        q.includes("long")
-        ||
-        q.includes("多久")
-        ||
-        q.includes("几天")
-        ||
-        q.includes("时间")
-        ||
-        q.includes("納期")
-        ||
-        q.includes("기간")
-        ||
-        q.includes("tarda")
-        ||
-        q.includes("délai")
-      ) {
-
-        return localReply(
-          "time"
-        );
-
-      }
-
-
-
-      /* 联系 */
-      if (
-        q.includes("contact")
-        ||
-        q.includes("email")
-        ||
-        q.includes("联系")
-        ||
-        q.includes("邮箱")
-        ||
-        q.includes("連絡")
-        ||
-        q.includes("연락")
-        ||
-        q.includes("correo")
-      ) {
-
-        return localReply(
-          "contact"
-        );
-
-      }
-
-
-
-      /* Python */
-      if (
-        q.includes("python")
-        ||
-        q.includes("脚本")
-        ||
-        q.includes("script")
-      ) {
-
-        return localReply(
-          "python"
-        );
-
-      }
-
-
-
-      /* 默认 */
-      return localReply(
-        "unknown"
-      );
-
-    }
-
-
-
-    function localReply(type) {
-
-      const replies = {
-
-        en: {
-
-          pricing:
-            "Pricing depends on complexity. Small fixes can start around ¥20–50, simple web or script work around ¥50–150, while larger custom projects are quoted individually.",
-
-          website:
-            "Yes. I can help with personal websites, landing pages, portfolio pages, responsive layouts and simple interactive features. Send a description or reference image for a more accurate estimate.",
-
-          bug:
-            "Yes. Send the error message, screenshot and relevant code. I can first check the likely cause and tell you whether it can be fixed before you commit to anything.",
-
-          time:
-            "Simple fixes may be completed quickly, while larger work takes longer. The safest approach is to send the exact requirements first, then I can estimate the delivery time.",
-
-          contact:
-            "You can contact the developer at:<br><br>📩 2591705357@qq.com<br>✉️ Hujiajinbao20141124@gmail.com",
-
-          python:
-            "Python requests are possible for simple scripts, automation, data processing and small utilities. Send the exact requirement first so the scope can be checked.",
-
-          unknown:
-            "I can help answer questions about pricing, websites, Python, bug fixes, features and delivery time. If your request is more specific, describe what you want to build and I’ll point you in the right direction."
-        },
-
-
-        zh: {
-
-          pricing:
-            "价格主要看复杂度。简单修改大约可以从 ¥20～50 起，简单网页或脚本大约 ¥50～150，功能较多的项目会根据具体需求单独报价。建议先把需求发过来，再确认价格。",
-
-          website:
-            "可以。个人主页、展示页、落地页、响应式网页以及一些简单交互功能都可以先看需求。你可以提供参考图、功能说明或者想要的效果。",
-
-          bug:
-            "可以先检查。最好把报错信息、截图和相关代码一起发来，我可以先判断大概原因以及是否能修，再决定要不要继续。",
-
-          time:
-            "简单修改通常比较快，复杂项目需要更久。具体工期最好先看需求，我会根据功能数量和难度给一个更靠谱的时间。",
-
-          contact:
-            "可以通过下面两个邮箱联系：<br><br>📩 2591705357@qq.com<br>✉️ Hujiajinbao20141124@gmail.com",
-
-          python:
-            "可以做一些简单 Python 脚本，例如自动化、数据处理、小工具等。具体能不能做要先看需求，最好把输入、输出和功能说明清楚。",
-
-          unknown:
-            "你可以问我价格、网页制作、Python、BUG修复、功能开发和交付时间。如果是具体项目，直接描述“想做什么 + 有什么功能 + 有没有参考图”，我会更容易判断。"
-        }
-
-      };
-
-
-      if (
-        currentLanguage === "zh"
-      ) {
-
-        return replies
-          .zh[type];
-
-      }
-
-
-      /*
-        其他语言暂时使用英文智能回复，
-        页面本身仍保持对应语言。
-      */
-      return replies
-        .en[type];
-
-    }
-
-
-
-    function sendMessage() {
-
-      const text =
-        input
-        .value
-        .trim();
-
-
-      if (!text) {
-        return;
-      }
-
-
-      addMessage(
-        escapeHtml(text),
-        "user"
-      );
-
-
-      input.value =
-        "";
-
-
-      /*
-        模拟思考时间
-      */
-      setTimeout(
-        function() {
-
-          const reply =
-            smartReply(text);
-
-          addMessage(
-            reply,
-            "bot"
-          );
-
-        },
-        450
-      );
-
-    }
-
-
-
-    function escapeHtml(text) {
-
-      const div =
-        document
-        .createElement("div");
-
-      div.textContent =
-        text;
-
-      return div.innerHTML;
-
-    }
-
-
-
-    input.addEventListener(
-      "keydown",
-      function(event) {
-
-        if (
-          event.key === "Enter"
-        ) {
-
+        btn.onclick = function() {
+          chatInput.value = question;
           sendMessage();
+        };
 
-        }
+        area.appendChild(btn);
+      });
+  }
 
-      }
+
+  function hasAny(text, words) {
+
+    return words.some(
+      word =>
+        text.includes(
+          word.toLowerCase()
+        )
+    );
+  }
+
+
+  function detectIntent(text) {
+
+    const q =
+      text.toLowerCase();
+
+
+    if (
+      hasAny(
+        q,
+        [
+          "price","cost","quote",
+          "多少钱","价格","报价","收费",
+          "料金","価格",
+          "가격","얼마",
+          "precio","cuánto",
+          "prix","combien"
+        ]
+      )
+    ) return "price";
+
+
+    if (
+      hasAny(
+        q,
+        [
+          "deposit","30%",
+          "定金","订金",
+          "着手金",
+          "계약금",
+          "depósito",
+          "acompte"
+        ]
+      )
+    ) return "deposit";
+
+
+    if (
+      hasAny(
+        q,
+        [
+          "refund",
+          "退款","退钱",
+          "返金",
+          "환불",
+          "reembolso",
+          "remboursement"
+        ]
+      )
+    ) return "refund";
+
+
+    if (
+      hasAny(
+        q,
+        [
+          "python",
+          "script",
+          "脚本",
+          "自动化",
+          "スクリプト",
+          "스크립트"
+        ]
+      )
+    ) return "python";
+
+
+    if (
+      hasAny(
+        q,
+        [
+          "bug","error",
+          "报错","错误","修复",
+          "バグ","エラー",
+          "버그","오류",
+          "erreur"
+        ]
+      )
+    ) return "bug";
+
+
+    if (
+      hasAny(
+        q,
+        [
+          "website","web",
+          "网页","网站",
+          "サイト",
+          "웹",
+          "sitio",
+          "site"
+        ]
+      )
+    ) return "website";
+
+
+    if (
+      hasAny(
+        q,
+        [
+          "time","long","deadline",
+          "多久","几天","工期",
+          "納期","時間",
+          "기간",
+          "tarda",
+          "délai"
+        ]
+      )
+    ) return "time";
+
+
+    if (
+      hasAny(
+        q,
+        [
+          "contact","email",
+          "whatsapp","instagram","line",
+          "联系","邮箱",
+          "連絡",
+          "연락",
+          "contacto"
+        ]
+      )
+    ) return "contact";
+
+
+    return "unknown";
+  }
+
+
+  function sendMessage() {
+
+    const text =
+      chatInput.value.trim();
+
+    if (!text) return;
+
+    const safe =
+      document.createElement("div");
+
+    safe.textContent = text;
+
+    addMessage(
+      safe.innerHTML,
+      "user"
     );
 
+    chatInput.value = "";
+
+    const intent =
+      detectIntent(text);
+
+    setTimeout(
+      function() {
+
+        addMessage(
+          t[currentLanguage]
+            .replies[intent],
+          "bot"
+        );
+
+      },
+      350
+    );
+  }
 
 
-    document.addEventListener(
-      "click",
-      function(event) {
+  chatInput.addEventListener(
+    "keydown",
+    function(event) {
 
-        if (
-          !languageBox
+      if (event.key === "Enter") {
+        sendMessage();
+      }
+
+    }
+  );
+
+
+  function generateInquiry() {
+
+    const project =
+      document
+        .getElementById("projectType")
+        .value.trim() || "-";
+
+    const budget =
+      document
+        .getElementById("budget")
+        .value.trim() || "-";
+
+    const deadline =
+      document
+        .getElementById("deadline")
+        .value.trim() || "-";
+
+    const reference =
+      document
+        .getElementById("reference")
+        .value.trim() || "-";
+
+    const requirements =
+      document
+        .getElementById("requirements")
+        .value.trim() || "-";
+
+
+    lastInquiry =
+`Project Type: ${project}
+Budget: ${budget}
+Deadline: ${deadline}
+Reference: ${reference}
+Requirements: ${requirements}`;
+
+    copyText(lastInquiry);
+  }
+
+
+  function copyInquiry() {
+
+    if (!lastInquiry) {
+      generateInquiry();
+      return;
+    }
+
+    copyText(lastInquiry);
+  }
+
+
+  async function copyText(text) {
+
+    try {
+
+      await navigator
+        .clipboard
+        .writeText(text);
+
+      showToast();
+
+    } catch {
+
+      window.prompt(
+        "Copy:",
+        text
+      );
+    }
+  }
+
+
+  function showToast() {
+
+    const toast =
+      document.getElementById("toast");
+
+    toast.classList.add("show");
+
+    setTimeout(
+      () =>
+        toast.classList.remove("show"),
+      1400
+    );
+  }
+
+
+  document.addEventListener(
+    "click",
+    function(event) {
+
+      if (
+        !languageWrap
           .contains(event.target)
-        ) {
-
-          languageBox
-            .classList
-            .remove("open");
-
-        }
-
+      ) {
+        languageWrap
+          .classList
+          .remove("open");
       }
-    );
+
+    }
+  );
 
 
+  setLanguage(currentLanguage);
 
-    /* 页面启动 */
-
-    setLanguage(
-      currentLanguage
-    );
-
-  </script>
-
+</script>
 
 </body>
-
 </html>
