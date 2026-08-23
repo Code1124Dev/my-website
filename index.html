@@ -8,21 +8,9 @@
   <title>代码开发服务｜网页制作・功能开发</title>
 
   <meta name="description"
-        content="提供网页制作、代码开发、功能修改、BUG修复与简单项目开发服务。有想法但不知道怎么实现？可以联系我。">
-
-  <meta name="keywords"
-        content="代码开发, 网页制作, 程序开发, HTML, CSS, JavaScript, BUG修复">
+        content="提供网页制作、代码开发、功能修改、BUG修复与简单项目开发服务。">
 
   <meta name="robots" content="index, follow">
-
-  <meta property="og:title"
-        content="代码开发服务｜网页制作・功能开发">
-
-  <meta property="og:description"
-        content="网页制作、代码开发、功能修改与简单项目开发服务。">
-
-  <meta property="og:type" content="website">
-
   <meta name="theme-color" content="#070b18">
 
   <style>
@@ -39,9 +27,33 @@
     body {
       font-family: Arial, "Microsoft YaHei", sans-serif;
       background:
-        radial-gradient(circle at 50% 20%, #18204a 0%, #0b1024 35%, #060914 75%);
+        radial-gradient(circle at 50% 15%, #19214d 0%, #0b1024 35%, #060914 75%);
       color: white;
       min-height: 100vh;
+    }
+
+    /* 语言按钮 */
+    .language {
+      position: fixed;
+      top: 18px;
+      right: 18px;
+      z-index: 1000;
+    }
+
+    .language button {
+      border: 1px solid rgba(255,255,255,.16);
+      background: rgba(255,255,255,.08);
+      color: white;
+      padding: 10px 16px;
+      border-radius: 12px;
+      font-size: 14px;
+      cursor: pointer;
+      backdrop-filter: blur(12px);
+      transition: .2s;
+    }
+
+    .language button:hover {
+      background: rgba(255,255,255,.15);
     }
 
     .hero {
@@ -73,7 +85,7 @@
     }
 
     .gradient {
-      background: linear-gradient(90deg, #8c7cff, #5c6cff, #62b7ff);
+      background: linear-gradient(90deg, #927cff, #626cff, #62b7ff);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
@@ -82,7 +94,7 @@
       color: #aeb6d2;
       font-size: 19px;
       line-height: 1.8;
-      max-width: 620px;
+      max-width: 650px;
       margin-bottom: 34px;
     }
 
@@ -105,7 +117,7 @@
     .primary {
       color: white;
       background: linear-gradient(135deg, #735cff, #5368ff);
-      box-shadow: 0 10px 35px rgba(91, 92, 255, .3);
+      box-shadow: 0 10px 35px rgba(91,92,255,.3);
     }
 
     .secondary {
@@ -176,19 +188,38 @@
       margin-bottom: 15px;
     }
 
-    .contact p {
+    .contact-text {
       color: #9da6c6;
-      margin-bottom: 28px;
+      margin-bottom: 30px;
+    }
+
+    .contact-buttons {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 13px;
     }
 
     .email {
-      display: inline-block;
+      display: block;
+      width: min(430px, 92%);
       color: white;
       background: linear-gradient(135deg, #735cff, #5368ff);
-      padding: 16px 28px;
+      padding: 16px 20px;
       border-radius: 14px;
       text-decoration: none;
-      font-size: 17px;
+      font-size: 16px;
+      transition: .25s;
+      word-break: break-all;
+    }
+
+    .email.gmail {
+      background: rgba(255,255,255,.07);
+      border: 1px solid rgba(255,255,255,.14);
+    }
+
+    .email:hover {
+      transform: translateY(-3px);
     }
 
     footer {
@@ -210,36 +241,67 @@
       .subtitle {
         font-size: 17px;
       }
+
+      .language {
+        top: 12px;
+        right: 12px;
+      }
     }
   </style>
 </head>
 
 <body>
 
+  <!-- 语言切换 -->
+  <div class="language">
+    <button id="langButton" onclick="changeLanguage()">
+      🌐 English
+    </button>
+  </div>
+
+
   <section class="hero">
 
     <div class="badge">
-      💻 Code1124Dev · 代码开发
+      💻 Code1124Dev · <span data-zh="代码开发" data-en="Development">代码开发</span>
     </div>
 
     <h1>
-      把你的想法<br>
-      <span class="gradient">变成代码</span>
+      <span data-zh="把你的想法" data-en="Turn Your Ideas">把你的想法</span>
+      <br>
+      <span
+        class="gradient"
+        data-zh="变成代码"
+        data-en="Into Code">
+        变成代码
+      </span>
     </h1>
 
-    <p class="subtitle">
-      网页制作 · 功能开发 · BUG 修复 · 页面优化<br>
-      有想法但不知道怎么实现？我可以帮你处理简单的代码需求。
+    <p
+      class="subtitle"
+      data-zh="网页制作 · 功能开发 · BUG 修复 · 页面优化｜有想法但不知道怎么实现？我可以帮你处理简单的代码需求。"
+      data-en="Web Development · Features · Bug Fixes · Optimization | Have an idea? I can help turn it into code.">
+      网页制作 · 功能开发 · BUG 修复 · 页面优化｜有想法但不知道怎么实现？我可以帮你处理简单的代码需求。
     </p>
 
     <div class="buttons">
-      <a href="#services" class="btn primary">
+
+      <a
+        href="#services"
+        class="btn primary"
+        data-zh="看看能做什么 →"
+        data-en="View Services →">
         看看能做什么 →
       </a>
 
-      <a href="#contact" class="btn secondary">
+      <a
+        href="#contact"
+        class="btn secondary"
+        data-zh="联系我"
+        data-en="Contact Me">
         联系我
       </a>
+
     </div>
 
   </section>
@@ -247,34 +309,53 @@
 
   <section class="services" id="services">
 
-    <h2>可以做什么</h2>
+    <h2 data-zh="可以做什么" data-en="What I Can Do">
+      可以做什么
+    </h2>
 
     <div class="cards">
 
       <div class="card">
         <div class="icon">🌐</div>
-        <h3>网页制作</h3>
-        <p>
-          制作简单网站、个人主页、展示页面、
-          活动页面以及移动端网页。
+
+        <h3 data-zh="网页制作" data-en="Web Development">
+          网页制作
+        </h3>
+
+        <p
+          data-zh="制作简单网站、个人主页、展示页面、活动页面以及移动端网页。"
+          data-en="Simple websites, personal pages, landing pages and mobile-friendly web pages.">
+          制作简单网站、个人主页、展示页面、活动页面以及移动端网页。
         </p>
       </div>
+
 
       <div class="card">
         <div class="icon">⚡</div>
-        <h3>功能开发</h3>
-        <p>
-          根据需求添加网页功能，
-          使用 HTML、CSS、JavaScript 等技术实现。
+
+        <h3 data-zh="功能开发" data-en="Feature Development">
+          功能开发
+        </h3>
+
+        <p
+          data-zh="根据需求添加网页功能，使用 HTML、CSS、JavaScript 等技术实现。"
+          data-en="Build website features using HTML, CSS, JavaScript and other technologies.">
+          根据需求添加网页功能，使用 HTML、CSS、JavaScript 等技术实现。
         </p>
       </div>
 
+
       <div class="card">
         <div class="icon">🛠️</div>
-        <h3>修改与修复</h3>
-        <p>
-          修改已有代码、调整页面样式、
-          修复简单 BUG 和优化页面体验。
+
+        <h3 data-zh="修改与修复" data-en="Fixes & Improvements">
+          修改与修复
+        </h3>
+
+        <p
+          data-zh="修改已有代码、调整页面样式、修复简单 BUG 和优化页面体验。"
+          data-en="Modify existing code, improve designs, fix bugs and optimize website experiences.">
+          修改已有代码、调整页面样式、修复简单 BUG 和优化页面体验。
         </p>
       </div>
 
@@ -285,17 +366,32 @@
 
   <section class="contact" id="contact">
 
-    <h2>有需求？</h2>
+    <h2 data-zh="有需求？" data-en="Have a Project?">
+      有需求？
+    </h2>
 
-    <p>
+    <p
+      class="contact-text"
+      data-zh="把你的需求发给我，可以先沟通具体实现方式。"
+      data-en="Send me your requirements and we can discuss how to build it.">
       把你的需求发给我，可以先沟通具体实现方式。
     </p>
 
-    <a
-      class="email"
-      href="mailto:2591705357@qq.com">
-      📩 2591705357@qq.com
-    </a>
+    <div class="contact-buttons">
+
+      <a
+        class="email"
+        href="mailto:2591705357@qq.com">
+        📩 QQ：2591705357@qq.com
+      </a>
+
+      <a
+        class="email gmail"
+        href="mailto:Hujiajinbao20141124@gmail.com">
+        ✉️ Gmail：Hujiajinbao20141124@gmail.com
+      </a>
+
+    </div>
 
   </section>
 
@@ -303,6 +399,34 @@
   <footer>
     © 2026 Code1124Dev · Code Development Service
   </footer>
+
+
+  <script>
+    let language = "zh";
+
+    function changeLanguage() {
+
+      language = language === "zh" ? "en" : "zh";
+
+      document.querySelectorAll("[data-zh]").forEach(function(element) {
+        element.textContent = element.getAttribute(
+          language === "zh" ? "data-zh" : "data-en"
+        );
+      });
+
+      const button = document.getElementById("langButton");
+
+      if (language === "zh") {
+        button.textContent = "🌐 English";
+        document.documentElement.lang = "zh-CN";
+        document.title = "代码开发服务｜网页制作・功能开发";
+      } else {
+        button.textContent = "🌐 中文";
+        document.documentElement.lang = "en";
+        document.title = "Code Development | Web & Features";
+      }
+    }
+  </script>
 
 </body>
 </html>
