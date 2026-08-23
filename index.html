@@ -1,20 +1,29 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-<head>
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-SXCRQRWC6V"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'G-SXCRQRWC6V');
-</script>
+<head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#060914">
 
-  <title>Code1124Dev | 代码开发服务</title>
+  <title>代码开发服务｜网页制作・功能开发</title>
+
+  <meta name="description"
+        content="提供网页制作、代码开发、功能修改、BUG修复与简单项目开发服务。有想法但不知道怎么实现？可以联系我。">
+
+  <meta name="keywords"
+        content="代码开发, 网页制作, 程序开发, HTML, CSS, JavaScript, BUG修复">
+
+  <meta name="robots" content="index, follow">
+
+  <meta property="og:title"
+        content="代码开发服务｜网页制作・功能开发">
+
+  <meta property="og:description"
+        content="网页制作、代码开发、功能修改与简单项目开发服务。">
+
+  <meta property="og:type" content="website">
+
+  <meta name="theme-color" content="#070b18">
 
   <style>
     * {
@@ -29,572 +38,244 @@
 
     body {
       font-family: Arial, "Microsoft YaHei", sans-serif;
-      color: #ffffff;
-      min-height: 100vh;
-      overflow-x: hidden;
-
       background:
-        radial-gradient(circle at 15% 15%,
-          rgba(105, 92, 255, 0.25),
-          transparent 32%),
-
-        radial-gradient(circle at 85% 25%,
-          rgba(0, 174, 255, 0.18),
-          transparent 32%),
-
-        radial-gradient(circle at 50% 80%,
-          rgba(133, 72, 255, 0.13),
-          transparent 38%),
-
-        linear-gradient(
-          180deg,
-          #070b17 0%,
-          #080d1c 50%,
-          #04060d 100%
-        );
-
-      background-attachment: fixed;
-    }
-
-    /* 科技网格背景 */
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      z-index: -1;
-      pointer-events: none;
-
-      background-image:
-        linear-gradient(
-          rgba(255,255,255,0.025) 1px,
-          transparent 1px
-        ),
-        linear-gradient(
-          90deg,
-          rgba(255,255,255,0.025) 1px,
-          transparent 1px
-        );
-
-      background-size: 45px 45px;
-    }
-
-    /* 顶部导航栏 */
-    nav {
-      width: 100%;
-      height: 68px;
-
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-
-      padding: 0 7%;
-
-      position: fixed;
-      top: 0;
-      left: 0;
-
-      z-index: 100;
-
-      background: rgba(5, 8, 18, 0.65);
-      backdrop-filter: blur(18px);
-      -webkit-backdrop-filter: blur(18px);
-
-      border-bottom:
-        1px solid rgba(255,255,255,0.07);
-    }
-
-    .logo {
-      font-size: 19px;
-      font-weight: 700;
-      letter-spacing: 0.5px;
-    }
-
-    .logo span {
-      color: #8378ff;
-    }
-
-    nav a {
-      color: #aeb5cc;
-      text-decoration: none;
-      font-size: 14px;
-      transition: 0.25s;
-    }
-
-    nav a:hover {
+        radial-gradient(circle at 50% 20%, #18204a 0%, #0b1024 35%, #060914 75%);
       color: white;
+      min-height: 100vh;
     }
 
-    /* 首页区域 */
     .hero {
       min-height: 100vh;
-
       display: flex;
       flex-direction: column;
-      align-items: center;
       justify-content: center;
-
+      align-items: center;
       text-align: center;
-
-      padding:
-        110px 24px
-        70px;
+      padding: 40px 22px;
     }
 
-    .tag {
-      display: inline-block;
-
-      padding: 9px 16px;
-
-      margin-bottom: 25px;
-
-      border-radius: 100px;
-
-      color: #aaa2ff;
-
-      background:
-        rgba(113, 98, 255, 0.1);
-
-      border:
-        1px solid rgba(126, 112, 255, 0.3);
-
-      font-size: 13px;
+    .badge {
+      padding: 8px 16px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.06);
+      border-radius: 999px;
+      color: #c8cbea;
+      font-size: 14px;
+      margin-bottom: 24px;
+      backdrop-filter: blur(10px);
     }
 
     h1 {
-      font-size: clamp(45px, 10vw, 78px);
-
-      line-height: 1.08;
-
+      font-size: clamp(42px, 9vw, 72px);
+      line-height: 1.15;
+      margin-bottom: 22px;
       letter-spacing: -2px;
-
-      margin-bottom: 24px;
     }
 
-    .gradient-text {
-      background:
-        linear-gradient(
-          90deg,
-          #8c80ff,
-          #5ac8ff
-        );
-
+    .gradient {
+      background: linear-gradient(90deg, #8c7cff, #5c6cff, #62b7ff);
       -webkit-background-clip: text;
-      background-clip: text;
-
       -webkit-text-fill-color: transparent;
     }
 
     .subtitle {
-      max-width: 620px;
-
-      color: #a7aec4;
-
-      font-size: 18px;
-
+      color: #aeb6d2;
+      font-size: 19px;
       line-height: 1.8;
-
-      margin-bottom: 35px;
+      max-width: 620px;
+      margin-bottom: 34px;
     }
 
-    /* 按钮 */
     .buttons {
       display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-
       gap: 14px;
+      flex-wrap: wrap;
+      justify-content: center;
     }
 
     .btn {
       display: inline-block;
-
       padding: 15px 27px;
-
-      border-radius: 13px;
-
+      border-radius: 14px;
       text-decoration: none;
+      font-size: 17px;
+      transition: .25s;
+    }
 
-      font-size: 15px;
-      font-weight: 600;
+    .primary {
+      color: white;
+      background: linear-gradient(135deg, #735cff, #5368ff);
+      box-shadow: 0 10px 35px rgba(91, 92, 255, .3);
+    }
 
-      transition:
-        transform 0.25s,
-        box-shadow 0.25s,
-        background 0.25s;
+    .secondary {
+      color: #dce0ff;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.05);
     }
 
     .btn:hover {
       transform: translateY(-3px);
     }
 
-    .primary {
-      color: white;
-
-      background:
-        linear-gradient(
-          135deg,
-          #655aff,
-          #795fff
-        );
-
-      box-shadow:
-        0 10px 35px
-        rgba(103, 91, 255, 0.3);
-    }
-
-    .primary:hover {
-      box-shadow:
-        0 15px 45px
-        rgba(103, 91, 255, 0.45);
-    }
-
-    .secondary {
-      color: white;
-
-      background:
-        rgba(255,255,255,0.05);
-
-      border:
-        1px solid
-        rgba(255,255,255,0.13);
-    }
-
-    /* 服务区域 */
     .services {
-      max-width: 1100px;
-
+      padding: 80px 20px;
+      max-width: 1050px;
       margin: auto;
-
-      padding:
-        90px 7%;
     }
 
-    .section-title {
+    .services h2 {
       text-align: center;
-
-      font-size: 35px;
-
-      margin-bottom: 12px;
-    }
-
-    .section-description {
-      text-align: center;
-
-      color: #8f96ac;
-
+      font-size: 34px;
       margin-bottom: 45px;
-
-      line-height: 1.7;
     }
 
     .cards {
       display: grid;
-
-      grid-template-columns:
-        repeat(3, 1fr);
-
+      grid-template-columns: repeat(3, 1fr);
       gap: 18px;
     }
 
     .card {
-      padding: 30px 26px;
-
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.09);
       border-radius: 20px;
-
-      background:
-        rgba(255,255,255,0.04);
-
-      border:
-        1px solid
-        rgba(255,255,255,0.08);
-
-      backdrop-filter: blur(10px);
-
-      transition:
-        transform 0.25s,
-        border 0.25s,
-        background 0.25s;
+      padding: 28px;
+      backdrop-filter: blur(12px);
+      transition: .25s;
     }
 
     .card:hover {
-      transform: translateY(-6px);
-
-      background:
-        rgba(255,255,255,0.065);
-
-      border-color:
-        rgba(118,103,255,0.45);
+      transform: translateY(-5px);
+      border-color: rgba(120,110,255,.5);
     }
 
     .icon {
-      font-size: 34px;
-
+      font-size: 32px;
       margin-bottom: 18px;
     }
 
     .card h3 {
       font-size: 20px;
-
-      margin-bottom: 11px;
+      margin-bottom: 12px;
     }
 
     .card p {
-      color: #989fb5;
-
-      font-size: 14px;
-
-      line-height: 1.75;
+      color: #9da6c6;
+      line-height: 1.7;
+      font-size: 15px;
     }
 
-    /* 联系区域 */
     .contact {
-      max-width: 850px;
-
-      margin:
-        60px auto 80px;
-
-      padding:
-        55px 25px;
-
       text-align: center;
-
-      border-radius: 25px;
-
-      background:
-        linear-gradient(
-          135deg,
-          rgba(104,92,255,0.14),
-          rgba(44,157,255,0.06)
-        );
-
-      border:
-        1px solid
-        rgba(255,255,255,0.08);
+      padding: 90px 20px;
     }
 
     .contact h2 {
-      font-size: 32px;
-
+      font-size: 34px;
       margin-bottom: 15px;
     }
 
     .contact p {
-      color: #a3aabe;
-
-      line-height: 1.7;
-
+      color: #9da6c6;
       margin-bottom: 28px;
     }
 
-    /* 页脚 */
-    footer {
-      text-align: center;
-
-      padding:
-        30px 20px 40px;
-
-      color: #646b80;
-
-      font-size: 13px;
+    .email {
+      display: inline-block;
+      color: white;
+      background: linear-gradient(135deg, #735cff, #5368ff);
+      padding: 16px 28px;
+      border-radius: 14px;
+      text-decoration: none;
+      font-size: 17px;
     }
 
-    /* 手机适配 */
-    @media (max-width: 700px) {
+    footer {
+      text-align: center;
+      color: #66708e;
+      font-size: 13px;
+      padding: 30px;
+    }
 
-      nav {
-        height: 62px;
-        padding: 0 20px;
-      }
-
-      .logo {
-        font-size: 17px;
-      }
-
-      .hero {
-        padding:
-          100px 22px
-          65px;
-      }
-
-      h1 {
-        font-size: 47px;
-        letter-spacing: -1px;
-      }
-
-      .subtitle {
-        font-size: 16px;
-      }
-
-      .buttons {
-        width: 100%;
-      }
-
-      .btn {
-        width: 100%;
-        max-width: 320px;
-      }
-
-      .services {
-        padding:
-          70px 20px;
-      }
-
+    @media (max-width: 750px) {
       .cards {
         grid-template-columns: 1fr;
       }
 
-      .contact {
-        margin:
-          35px 20px
-          60px;
-
-        padding:
-          45px 22px;
+      h1 {
+        letter-spacing: -1px;
       }
 
-      .contact h2 {
-        font-size: 27px;
+      .subtitle {
+        font-size: 17px;
       }
     }
-
   </style>
 </head>
 
-
 <body>
 
-  <!-- 导航 -->
-  <nav>
-
-    <div class="logo">
-      &lt;<span>Code1124</span>/&gt;
-    </div>
-
-    <a href="#services">
-      服务项目
-    </a>
-
-  </nav>
-
-
-  <!-- 首页 -->
   <section class="hero">
 
-    <div class="tag">
-      💻 Code1124Dev · Development
+    <div class="badge">
+      💻 Code1124Dev · 代码开发
     </div>
 
     <h1>
-      把你的想法
-      <br>
-
-      <span class="gradient-text">
-        变成代码
-      </span>
+      把你的想法<br>
+      <span class="gradient">变成代码</span>
     </h1>
 
     <p class="subtitle">
-
-      有想法，但不知道怎么实现？
-
-      <br>
-
-      我可以帮你处理简单的网页、
-      代码修改以及一些小型开发需求。
-
+      网页制作 · 功能开发 · BUG 修复 · 页面优化<br>
+      有想法但不知道怎么实现？我可以帮你处理简单的代码需求。
     </p>
 
-
     <div class="buttons">
-
-      <a
-        class="btn primary"
-        href="#services"
-      >
-        查看服务 ↓
+      <a href="#services" class="btn primary">
+        看看能做什么 →
       </a>
 
-
-      <a
-        class="btn secondary"
-        href="mailto:2591705357@qq.com"
-      >
-        ✉️ 联系我
+      <a href="#contact" class="btn secondary">
+        联系我
       </a>
-
     </div>
 
   </section>
 
 
-  <!-- 服务 -->
-  <section
-    class="services"
-    id="services"
-  >
+  <section class="services" id="services">
 
-    <h2 class="section-title">
-      可以做什么？
-    </h2>
-
-    <p class="section-description">
-      简单、快速地帮你实现一些代码需求
-    </p>
-
+    <h2>可以做什么</h2>
 
     <div class="cards">
 
       <div class="card">
-
-        <div class="icon">
-          🌐
-        </div>
-
-        <h3>
-          网页制作
-        </h3>
-
+        <div class="icon">🌐</div>
+        <h3>网页制作</h3>
         <p>
-          个人主页、展示页面、
-          活动页面以及一些简单的网站制作。
+          制作简单网站、个人主页、展示页面、
+          活动页面以及移动端网页。
         </p>
-
       </div>
 
-
       <div class="card">
-
-        <div class="icon">
-          🛠️
-        </div>
-
-        <h3>
-          代码修改
-        </h3>
-
+        <div class="icon">⚡</div>
+        <h3>功能开发</h3>
         <p>
-          修改现有代码、调整网页样式、
-          修复一些简单的问题。
+          根据需求添加网页功能，
+          使用 HTML、CSS、JavaScript 等技术实现。
         </p>
-
       </div>
 
-
       <div class="card">
-
-        <div class="icon">
-          💡
-        </div>
-
-        <h3>
-          想法实现
-        </h3>
-
+        <div class="icon">🛠️</div>
+        <h3>修改与修复</h3>
         <p>
-          有一个小项目或者自己的想法？
-          可以一起研究如何把它实现出来。
+          修改已有代码、调整页面样式、
+          修复简单 BUG 和优化页面体验。
         </p>
-
       </div>
 
     </div>
@@ -602,36 +283,25 @@
   </section>
 
 
-  <!-- 联系 -->
-  <section class="contact">
+  <section class="contact" id="contact">
 
-    <h2>
-      有想法？聊聊吧 👋
-    </h2>
+    <h2>有需求？</h2>
 
     <p>
-      告诉我你想实现什么，
-      <br>
-      我会看看能不能帮你完成。
+      把你的需求发给我，可以先沟通具体实现方式。
     </p>
 
-
     <a
-      class="btn primary"
-      href="mailto:2591705357@qq.com"
-    >
-      ✉️ 发送邮件
+      class="email"
+      href="mailto:2591705357@qq.com">
+      📩 2591705357@qq.com
     </a>
 
   </section>
 
 
-  <!-- 页脚 -->
   <footer>
-
-    © 2026 Code1124Dev
-    · Built with ❤️
-
+    © 2026 Code1124Dev · Code Development Service
   </footer>
 
 </body>
